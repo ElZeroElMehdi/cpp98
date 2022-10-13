@@ -53,6 +53,7 @@ int main(){
     PhoneBook pb;
     std::string input;
     while (1){
+        std::cout << "ADD SEARCH EXIT" << std::endl;
         std::cout << "Enter command: ";
         std::cin >> input;
         if (!input[0])
@@ -60,6 +61,7 @@ int main(){
             std::cout << "bad input EOF" << std::endl;
             break;
         }
+        
         if (input == "ADD")
             pb.addContact();
         else if (input == "SEARCH")
