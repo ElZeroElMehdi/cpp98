@@ -37,19 +37,16 @@ class PhoneBook{
             this->contacts[this->maxindex].setIndex(this->maxindex);
             this->maxindex++;
         }
-        // void showContacts(){
-        //     std::cout << "Index     |First Name|Last Name |Nickname  " << std::endl;
-        //     for (int i = 0; i < this->maxindex; i++){
-        //         std::cout << this->contacts[i].getIndex() << "|";
-        //         std::cout << this->contacts[i].getFirstName() << "|";
-        //         std::cout << this->contacts[i].getLastName() << "|";
-        //         std::cout << this->contacts[i].getNickname() << std::endl;
-        //     }
-        // }
+
         void searchContact(){
             std::string index;
             std::cout << "Enter index: ";
             std::cin >> index;
+            if (!index[0])
+            {
+                std::cout << "bad input\n";
+                exit(1);
+            }
             for (int i = 0; i < this->maxindex; i++){
                 if (this->contacts[i].getIndex() == std::stoi(index)){
                     std::cout << "First Name: " << this->contacts[i].getFirstName() << std::endl;
@@ -70,7 +67,7 @@ int main(){
         std::cin >> input;
         if (!input[0])
         {
-            std::cout << "bad input EOF" << std::endl;
+            std::cout << "bad input\n";
             break;
         }
         

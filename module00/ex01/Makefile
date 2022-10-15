@@ -1,33 +1,21 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: eelmoham <eelmoham@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/10/13 22:21:40 by eelmoham          #+#    #+#              #
-#    Updated: 2022/10/13 22:21:41 by eelmoham         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-NAME : PhoneBook
+NAME = PhoneBook
 
 cpp = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = PhoneBook.cpp 
-
-HEADERS = PhoneBook.hpp
+SRCS = Contact.cpp PhoneBook.cpp
 
 OBJS = $(SRCS:.cpp=.o)
+
+HEADER = PhoneBook.hpp
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(cpp) $(FLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.cpp $(HEADERS)
+%.o: %.cpp $(HEADER)
 	$(cpp) $(FLAGS) -c $< -o $@
 
 clean:
