@@ -45,7 +45,7 @@ class PhoneBook{
             if (!index[0])
             {
                 std::cout << "bad input\n";
-                exit(1);
+                return;
             }
             for (int i = 0; i < this->maxindex; i++){
                 if (this->contacts[i].getIndex() == std::stoi(index)){

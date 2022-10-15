@@ -13,8 +13,8 @@
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
 
-#include <string>
 #include <iostream>
+#include <string>
 
 class Contact
 {
@@ -49,4 +49,6 @@ class Contact
             return this->nickname;
         }
 };
+
+std::string::size_type sz;  // alias of size_t
 #endif
