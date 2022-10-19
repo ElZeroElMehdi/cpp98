@@ -6,12 +6,21 @@
 /*   By: eelmoham <eelmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 22:21:43 by eelmoham          #+#    #+#             */
-/*   Updated: 2022/10/19 09:47:45 by eelmoham         ###   ########.fr       */
+/*   Updated: 2022/10/19 12:27:01 by eelmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
+int validIndex(std::string index)
+{
+	if (index.length() > 1)
+		return -1;
+	else if (index[0] < '0' || index[0] > '7')
+		return -1;
+	else
+		return 1;
+}
 class PhoneBook{
     public:
         int maxindex;
@@ -39,44 +48,56 @@ class PhoneBook{
             this->maxindex++;
         }
 
-        void searchContact(){
+        int searchContact(){
             std::string index;
             std::cout << "Enter index: ";
-            std::cin >> index;
-            if (!index[0])
+            if (!std::getline(std::cin, index))
+			{
+				std::cout<< "\n oops bad hacker";
+				return -1;
+			}
+			while (validIndex(index) == -1)
             {
-                std::cout << "bad input\n";
-                return;
+                std::cout << "bad input, retry again : ";
+				if (!std::getline(std::cin, index))
+				{
+					std::cout<< "\n oops bad hacker";
+					return -1;
+				}
             }
             for (int i = 0; i < this->maxindex; i++){
                 if (this->contacts[i].getIndex() == std::stoi(index)){
-                    std::cout << "index : " << this->contacts[i].getIndex() << std::endl;
-                    std::cout << "First Name: " << this->contacts[i].getFirstName() << std::endl;
-                    std::cout << "Last Name: " << this->contacts[i].getLastName() << std::endl;
-                    std::cout << "Nickname: " << this->contacts[i].getNickname() << std::endl;
+                    std::cout << "index : " << this->contacts[i].getIndex();
+                    std::cout << " | First Name: " << this->contacts[i].getFirstName();
+                    std::cout << "| Last Name: " << this->contacts[i].getLastName();
+                    std::cout << "| Nickname: " << this->contacts[i].getNickname();
+					std::cout << std::endl;
                 }
             }
+			return 1;
         }
 };
 
 
 int main(){
-    PhoneBook pb;
+    PhoneBook	pb;
     std::string input;
     while (1){
         std::cout << "ADD SEARCH EXIT" << std::endl;
         std::cout << "Enter command: ";
-        std::cin >> input;
-        if (!input[0])
+        
+		if (!std::getline(std::cin, input))
         {
             std::cout << "bad input\n";
             break;
         }
-        
         if (input == "ADD")
             pb.addContact();
         else if (input == "SEARCH")
-            pb.searchContact();
+        {
+			if(pb.searchContact() == -1)
+				break;
+		}
         else if (input == "EXIT")
             break;
     }

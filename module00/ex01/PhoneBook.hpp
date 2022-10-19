@@ -6,7 +6,7 @@
 /*   By: eelmoham <eelmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 22:21:50 by eelmoham          #+#    #+#             */
-/*   Updated: 2022/10/19 09:48:07 by eelmoham         ###   ########.fr       */
+/*   Updated: 2022/10/19 10:52:02 by eelmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ class Contact
         std::string firstName;
         std::string lastName;
         std::string nickname;
+		std::string numberPhone;
+		std::string darkestSecret;
     public:
         void setFirstName(std::string fn){
             this->firstName = fn;
@@ -37,20 +39,32 @@ class Contact
         void setIndex(int i){
             this->index = i;
         }
+		void setNumberPhone(std::string np)
+		{
+			this->numberPhone = np;
+		}
+		void setDarkestSecret(std::string ds)
+		{
+			this->darkestSecret = ds;
+		}
+		
         int getIndex(){
             return this->index;
         }
+		
         std::string getFirstName(){
             return this->firstName;
         }
+		
         std::string getLastName(){
             return this->lastName;
         }
+		
         std::string getNickname(){
             return this->nickname;
         }
 };
 
-std::string::size_type sz;  // alias of size_t
+int validIndxe(std::string index);
 
 #endif
