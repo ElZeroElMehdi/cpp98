@@ -12,6 +12,7 @@ int main(int argc, char **argv)
 				std::cout << (char)toupper(argv[j][i++]);
 			j++;
 		}
+		std::cout << "\n";
 	}
 	else
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
