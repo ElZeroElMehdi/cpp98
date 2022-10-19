@@ -6,7 +6,7 @@
 /*   By: eelmoham <eelmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 22:21:43 by eelmoham          #+#    #+#             */
-/*   Updated: 2022/10/13 22:21:44 by eelmoham         ###   ########.fr       */
+/*   Updated: 2022/10/19 09:47:45 by eelmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ class PhoneBook{
         Contact contacts[8];
         PhoneBook(){
             this->maxindex = 0;
+			
         }
          void addContact(){
             if (this->maxindex == 8)
@@ -49,6 +50,7 @@ class PhoneBook{
             }
             for (int i = 0; i < this->maxindex; i++){
                 if (this->contacts[i].getIndex() == std::stoi(index)){
+                    std::cout << "index : " << this->contacts[i].getIndex() << std::endl;
                     std::cout << "First Name: " << this->contacts[i].getFirstName() << std::endl;
                     std::cout << "Last Name: " << this->contacts[i].getLastName() << std::endl;
                     std::cout << "Nickname: " << this->contacts[i].getNickname() << std::endl;

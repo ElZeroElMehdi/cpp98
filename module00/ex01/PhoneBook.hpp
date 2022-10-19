@@ -6,7 +6,7 @@
 /*   By: eelmoham <eelmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 22:21:50 by eelmoham          #+#    #+#             */
-/*   Updated: 2022/10/13 22:21:51 by eelmoham         ###   ########.fr       */
+/*   Updated: 2022/10/19 09:48:07 by eelmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ class Contact
         void setNickname(std::string nn){
             this->nickname = nn;
         }
+		
         void setIndex(int i){
             this->index = i;
         }
@@ -51,4 +52,5 @@ class Contact
 };
 
 std::string::size_type sz;  // alias of size_t
+
 #endif
