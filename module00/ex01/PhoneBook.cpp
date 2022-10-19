@@ -6,7 +6,7 @@
 /*   By: eelmoham <eelmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 22:21:43 by eelmoham          #+#    #+#             */
-/*   Updated: 2022/10/19 15:46:20 by eelmoham         ###   ########.fr       */
+/*   Updated: 2022/10/19 19:13:25 by eelmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,15 @@ int validIndex(std::string index)
 	else
 		return 1;
 }
+
+std::string t10char(std::string str)
+{
+	if (str.length() > 9)
+		return (str.substr(0, 9) + ".");
+	else
+		return (str);
+}
+
 class PhoneBook{
     public:
         int maxindex;
@@ -73,9 +82,9 @@ class PhoneBook{
 			std::cout << std::endl;
 			for (int i = 0; i < this->maxindex; i++){
                 std::cout << this->contacts[i].getIndex();
-                std::cout << "  |"<< this->contacts[i].getFirstName();
-                std::cout << "  |"<< this->contacts[i].getLastName();
-                std::cout << "  |"<< this->contacts[i].getNickname();
+                std::cout << "  |"<< t10char(this->contacts[i].getFirstName());
+                std::cout << "  |"<< t10char(this->contacts[i].getLastName());
+                std::cout << "  |"<< t10char(this->contacts[i].getNickname());
 				std::cout << std::endl;
             }
 		}
