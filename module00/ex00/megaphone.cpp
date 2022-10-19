@@ -2,12 +2,16 @@
 
 int main(int argc, char **argv)
 {
-	int i;
-	i = 0;
-	if (argc == 2)
+	int i , j = 1;
+	if (argc >= 2)
 	{
-		while (argv[1][i])
-			std::cout << (char)toupper(argv[1][i++]);
+		while(argv[j])
+		{
+			i = 0;
+			while (argv[j][i])
+				std::cout << (char)toupper(argv[j][i++]);
+			j++;
+		}
 	}
 	else
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
