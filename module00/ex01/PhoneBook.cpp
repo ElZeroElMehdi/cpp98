@@ -6,21 +6,35 @@
 /*   By: eelmoham <eelmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 22:21:43 by eelmoham          #+#    #+#             */
-/*   Updated: 2022/10/19 19:13:25 by eelmoham         ###   ########.fr       */
+/*   Updated: 2022/10/20 15:24:43 by eelmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include <cctype>
 
 int validIndex(std::string index)
 {
-	if (index.length() > 1 || (index[0] < '0' || index[0] > '7'))
+	if (index.length() > 1 || std::isdigit(index[0]) == 0 || (index[0] < '0' || index[0] > '7'))
 	{
-		std::cout<< "the index is out range 0-7\n";
+		std::cout<< "the index is out of the range 0-7\n";
 		return (-1);
 	}
 	else
 		return 1;
+}
+
+int isAllSpace(std::string pr)
+{
+	int i = 0;
+
+	while (pr[i])
+	{
+		if (pr[i] == 32)
+			return (-1);
+		i++;
+	}
+	return (1);
 }
 
 std::string t10char(std::string str)
@@ -40,7 +54,7 @@ class PhoneBook{
             this->maxindex = 0;
             this->index = 0;
         }
-         void addContact()
+         int addContact()
 		 {
 			if (this->index == 8)
 				this->index = 0;
@@ -48,11 +62,15 @@ class PhoneBook{
             std::string ln;
             std::string nn;
             std::cout << "Enter first name: ";
-            std::getline(std::cin, fn);
+            
+			if (!std::getline(std::cin, fn) || fn.empty() || isAllSpace(fn) == -1)
+				return -1;
             std::cout << "Enter last name: ";
-            std::getline(std::cin, ln);
+			if (!std::getline(std::cin, ln) || ln.empty() || isAllSpace(ln) == -1)
+				return -1;
             std::cout << "Enter nickname: ";
-            std::getline(std::cin, nn);
+			if (!std::getline(std::cin, nn) || nn.empty() || isAllSpace(nn) == -1)
+				return -1;
             this->contacts[this->index].setFirstName(fn);
             this->contacts[this->index].setLastName(ln);
             this->contacts[this->index].setNickname(nn);
@@ -60,6 +78,7 @@ class PhoneBook{
             if (this->maxindex < 8)
 				this->maxindex++;
 			this->index++;
+			return 1;
         }
 
         int searchContact(){
@@ -69,7 +88,7 @@ class PhoneBook{
             if (!std::getline(std::cin, index))
 				return -1;
 			if (validIndex(index) != -1)
-            	ShowContact(std::stoi(index));
+				ShowContact(std::atoi(&index[0]));
 			return 1;
         }
 
@@ -90,6 +109,11 @@ class PhoneBook{
 		}
 		void ShowContact(int index)
 		{
+			if (index >= this->maxindex)
+			{
+				std::cout << "this index out of range\n";
+				return;
+			}
 			for (int i = 0; i < this->maxindex; i++){
                 if (this->contacts[i].getIndex() == index){
                     std::cout << "index : " << this->contacts[i].getIndex();
@@ -129,9 +153,15 @@ int main(){
             std::cout << "bad input\n";
             break;
         }
-        if (input == "ADD")
-        	pb.addContact();
-        else if (input == "SEARCH")
+        if (input == "ADD" || input == "add")
+        {
+			if (pb.addContact() == -1)
+			{
+				std::cout << "Oops Bad Hacker\n";
+				break;
+			}
+		}
+        else if (input == "SEARCH" || input == "search")
         {
 			if(pb.searchContact() == -1)
 			{
@@ -139,7 +169,7 @@ int main(){
 				break;
 			}
 		}
-        else if (input == "EXIT")
+        else if (input == "EXIT" || input == "exit")
             break;
 		else
 			std::cout << "error : \"" << input << "\" commad not fund\n";
