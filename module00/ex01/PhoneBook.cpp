@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-#include <cctype>
+
 
 int validIndex(std::string index)
 {
@@ -31,18 +31,38 @@ int isAllSpace(std::string pr)
 	while (pr[i])
 	{
 		if (pr[i] == 32)
-			return (-1);
-		i++;
+		    i++;
+        else
+			return (1);
 	}
-	return (1);
+	return (-1);
 }
 
 std::string t10char(std::string str)
 {
+    std::string str1;
+    int         at = 0;
+    
 	if (str.length() > 9)
-		return (str.substr(0, 9) + ".");
+	{
+        str1 = str.substr(0, 9);
+        str1.append(".");
+    }
+    else if (str.length() == 9)
+    {
+        str1 = str;
+        str1.append(".");
+    }
 	else
-		return (str);
+	{
+        at = 10 - str.length();
+        for (int i = 0 ; i < at ; i++)
+        {
+            str1.append(" ");
+        }
+        str1.append(str);
+    }
+    return (str1);
 }
 
 class PhoneBook{
@@ -54,15 +74,14 @@ class PhoneBook{
             this->maxindex = 0;
             this->index = 0;
         }
-         int addContact()
-		 {
+        int addContact()
+		{
 			if (this->index == 8)
 				this->index = 0;
             std::string fn;
             std::string ln;
             std::string nn;
             std::cout << "Enter first name: ";
-            
 			if (!std::getline(std::cin, fn) || fn.empty() || isAllSpace(fn) == -1)
 				return -1;
             std::cout << "Enter last name: ";
@@ -94,16 +113,16 @@ class PhoneBook{
 
 		void ShowContact()
 		{
-			std::cout << "index : " ;
-            std::cout << " | First Name: ";
-            std::cout << "| Last Name: ";
-            std::cout << "| Nickname: ";
+			std::cout << "index     ";
+            std::cout << "|first name";
+            std::cout << "| Last Name";
+            std::cout << "|  Nickname";
 			std::cout << std::endl;
 			for (int i = 0; i < this->maxindex; i++){
-                std::cout << this->contacts[i].getIndex();
-                std::cout << "  |"<< t10char(this->contacts[i].getFirstName());
-                std::cout << "  |"<< t10char(this->contacts[i].getLastName());
-                std::cout << "  |"<< t10char(this->contacts[i].getNickname());
+                std::cout<<"         " << this->contacts[i].getIndex();
+                std::cout << "|" << t10char(this->contacts[i].getFirstName());
+                std::cout << "|"<< t10char(this->contacts[i].getLastName());
+                std::cout << "|"<< t10char(this->contacts[i].getNickname());
 				std::cout << std::endl;
             }
 		}

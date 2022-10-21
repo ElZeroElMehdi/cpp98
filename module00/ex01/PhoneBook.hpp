@@ -15,6 +15,8 @@
 
 #include <iostream>
 #include <string>
+#include <cctype>
+#include <stdlib.h>
 
 class Contact
 {
