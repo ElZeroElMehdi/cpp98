@@ -6,7 +6,7 @@
 /*   By: eelmoham <eelmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 22:21:50 by eelmoham          #+#    #+#             */
-/*   Updated: 2022/10/19 10:52:02 by eelmoham         ###   ########.fr       */
+/*   Updated: 2022/10/21 22:01:18 by eelmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,56 +17,23 @@
 #include <string>
 #include <cctype>
 #include <stdlib.h>
+#include "Contact.hpp"
 
-class Contact
-{
-    private:
-        int index;
-        std::string firstName;
-        std::string lastName;
-        std::string nickname;
-		std::string numberPhone;
-		std::string darkestSecret;
+int validIndex(std::string index);
+int isAllSpace(std::string pr);
+std::string t10char(std::string str);
+
+class PhoneBook{
     public:
-        void setFirstName(std::string fn){
-            this->firstName = fn;
-        }
-        void setLastName(std::string ln){
-            this->lastName = ln;
-        }
-        void setNickname(std::string nn){
-            this->nickname = nn;
-        }
-		
-        void setIndex(int i){
-            this->index = i;
-        }
-		void setNumberPhone(std::string np)
-		{
-			this->numberPhone = np;
-		}
-		void setDarkestSecret(std::string ds)
-		{
-			this->darkestSecret = ds;
-		}
-		
-        int getIndex(){
-            return this->index;
-        }
-		
-        std::string getFirstName(){
-            return this->firstName;
-        }
-		
-        std::string getLastName(){
-            return this->lastName;
-        }
-		
-        std::string getNickname(){
-            return this->nickname;
-        }
+        int maxindex;
+        int index;
+        Contact contacts[8];
+		PhoneBook();
+		int addContact();
+		int searchContact();
+		void ShowContact();
+		void ShowContact(int index);
 };
 
-int validIndxe(std::string index);
 
 #endif
