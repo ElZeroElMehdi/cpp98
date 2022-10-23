@@ -14,3 +14,8 @@ void HumanB::attack()
 {
     std::cout << this->name << " attacks with their " << this->WeaponB.getType() << std::endl;
 }
+
+void HumanB::setWeapon(Weapon wpn)
+{
+	this->WeaponB = wpn;
+}

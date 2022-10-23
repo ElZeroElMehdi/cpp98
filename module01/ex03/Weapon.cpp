@@ -22,5 +22,5 @@ void Weapon::setType(std::string _type)
 
 Weapon::~Weapon()
 {
-    std::cout << "Weapon destroyed" << std::endl;
+    // std::cout << "Weapon destroyed" << std::endl;
 }
