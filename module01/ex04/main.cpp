@@ -1,11 +1,17 @@
 #include <iostream>
 #include <fstream>
+#include <string>
 
-int main() {
+int main()
+{
 	std::ofstream myfile;
-
-	myfile.open("hello.replace");
-	myfile << "hello\n";
+	std::string str;
+	myfile.open("hello2.replace");
+	myfile << "hello\nhello\nff\ndd";
 	myfile.close();
+	std::ifstream MyFiles("hello2.replace");
+	if (std::getline(MyFiles, str))
+		std::cout <<  str;
+	MyFiles.close();
 	return 0;
 }

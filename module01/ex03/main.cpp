@@ -6,7 +6,7 @@
 /*   By: eelmoham <eelmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 18:52:02 by eelmoham          #+#    #+#             */
-/*   Updated: 2022/10/23 19:05:06 by eelmoham         ###   ########.fr       */
+/*   Updated: 2022/10/23 19:53:53 by eelmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,5 @@ int main()
         club.setType("some other type of club");
         jim.attack();
     }
-	// system("leaks human");
     return 0;
 }
