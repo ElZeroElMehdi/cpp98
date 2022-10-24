@@ -6,7 +6,7 @@
 /*   By: eelmoham <eelmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 20:31:49 by eelmoham          #+#    #+#             */
-/*   Updated: 2022/10/24 23:09:12 by eelmoham         ###   ########.fr       */
+/*   Updated: 2022/10/25 00:47:59 by eelmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ std::string spliter(std::string str, std::string s1, std::string s2)
 		if (subs == s1)
 			subs = s2;
 		s.append(subs);
-		if (ss)
-			s.append(" ");
+		s.append(" ");
 	}
-	// s.append("\n");
-	return s;
+	std::string txt = s.substr(0, s.size() - 1);
+	txt.append("\n");
+	return txt;
 }
 
 int main(int ac, char **av)
