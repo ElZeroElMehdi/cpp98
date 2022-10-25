@@ -6,7 +6,7 @@
 /*   By: eelmoham <eelmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 20:31:49 by eelmoham          #+#    #+#             */
-/*   Updated: 2022/10/25 20:30:48 by eelmoham         ###   ########.fr       */
+/*   Updated: 2022/10/25 23:15:16 by eelmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,20 @@ std::string spliter(std::string str, std::string s1, std::string s2)
 {
 	(void)s2;
 	std::string subs;
-	int pos= str.find(s1);
-	if (pos)
+	char *str2;
+	str2 = 
+	int pos = 0;
+	while (str[pos])
 	{
-		subs = str;
-		subs.insert(pos, s2);
-		return subs;
+		pos = str.find(s1);
+		if (pos)
+		{
+			subs = str;
+			subs.insert(pos, s2);
+			return subs;
+		}
 	}
+	
 	return NULL;
 }
 
