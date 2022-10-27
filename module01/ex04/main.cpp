@@ -14,6 +14,7 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+#include <cstdlib>
 
 // std::string spliter(std::string str, std::string s1, std::string s2)
 // {
@@ -36,16 +37,15 @@
 
 std::string spliter(std::string str, std::string s1, std::string s2)
 {
-	(void)s2;
-	std::string subs;
-	int pos= str.find(s1);
-	if (pos)
+	size_t pos;
+	pos = str.find(s1);
+	while (pos != std::string::npos) 
 	{
-		subs = str;
-		subs.insert(pos, s2);
-		return subs;
+		str = str.substr(0, pos) + s2 + str.substr(pos + s1.length(), -1);
+		pos = str.find(s1);
+		std::cout << str << std::endl;
 	}
-	return NULL;
+	return str;
 }
 
 int main(int ac, char **av)
@@ -58,9 +58,9 @@ int main(int ac, char **av)
 		std::string fileName;
 
 		fileName.append(av[1]);
-		myfile.open(fileName);
+		myfile.open(fileName.c_str());
 		fileName.append(".replace");
-		newfile.open(fileName);
+		newfile.open(fileName.c_str());
 		if (!myfile.is_open() || !newfile.is_open())
 		{
 			std::cout << "no such file\n";
@@ -68,13 +68,8 @@ int main(int ac, char **av)
 		}
 		while (std::getline(myfile, str))
 		{
-			if (spliter(str, av[2], av[3]) != NULL)
-			{
-				newfile << spliter(str, av[2], av[3]);
-				newfile << "\n";
-			}
-			else
-				newfile << str;
+			newfile << spliter(str, av[2], av[3]);
+			// newfile << "\n";
 		}
 		newfile.close();
 		myfile.close();
