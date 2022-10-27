@@ -41,7 +41,8 @@ std::string spliter(std::string str, std::string s1, std::string s2)
 	pos = str.find(s1);
 	while (pos != std::string::npos) 
 	{
-		str = str.substr(0, pos) + s2 + str.substr(pos + s1.length(), -1);
+		str.erase(pos, s1.size());
+		str.insert(pos, s2);
 		pos = str.find(s1);
 		std::cout << str << std::endl;
 	}
@@ -76,6 +77,6 @@ int main(int ac, char **av)
 	}
 	else
 		std::cout << "bad inputs\n";
-	// system("leaks replace");
+	system("leaks replace");
 	return 0;
 }
