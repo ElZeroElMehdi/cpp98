@@ -38,6 +38,9 @@
 std::string spliter(std::string str, std::string s1, std::string s2)
 {
 	size_t pos;
+
+	if (s1 == s2)
+		return str;
 	pos = str.find(s1);
 	while (pos != std::string::npos) 
 	{
@@ -68,12 +71,10 @@ int main(int ac, char **av)
 			return 1;
 		}
 		while (std::getline(myfile, str))
-		{
 			newfile << spliter(str, av[2], av[3]);
-			// newfile << "\n";
-		}
 		newfile.close();
 		myfile.close();
+		return 0;
 	}
 	else
 		std::cout << "bad inputs\n";
