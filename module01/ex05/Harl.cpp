@@ -12,22 +12,22 @@ Harl::~Harl()
 
 void Harl::debug( void )
 {
-    std::cout << "Debug messages contain contextual information. They are mostly used for problem diagnosis.\nExample: \"I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do!\"" << std::endl;
+    std::cout << "\"DEBUG\"messages contain contextual information. They are mostly used for problem diagnosis.\nExample: \"I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do!\"" << std::endl;
 }
 
 void Harl::info( void )
 {
-    std::cout << "Info messages are used to report information about the program's execution. They are mostly used for problem diagnosis.\nExample: \"I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do!\"" << std::endl;
+    std::cout << "\"INFO\" messages are used to report information about the program's execution. They are mostly used for problem diagnosis.\nExample: \"I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do!\"" << std::endl;
 }
 
 void Harl::warning( void )
 {
-    std::cout << "Warning messages are used to report non-critical errors. They are mostly used for problem diagnosis.\nExample: \"I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do!\"" << std::endl;
+    std::cout << "\"WARNING\" messages are used to report non-critical errors. They are mostly used for problem diagnosis.\nExample: \"I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do!\"" << std::endl;
 }
 
 void Harl::error( void )
 {
-    std::cout << "Error messages are used to report critical errors. They are mostly used for problem diagnosis.\nExample: \"I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do!\"" << std::endl;
+    std::cout << "\"ERROR\" messages are used to report critical errors. They are mostly used for problem diagnosis.\nExample: \"I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do!\"" << std::endl;
 }
 
 void Harl::complain( std::string level )
