@@ -6,7 +6,7 @@
 /*   By: eelmoham <eelmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 20:31:49 by eelmoham          #+#    #+#             */
-/*   Updated: 2022/10/25 23:15:16 by eelmoham         ###   ########.fr       */
+/*   Updated: 2022/10/29 18:56:51 by eelmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,45 +14,23 @@
 #include <fstream>
 #include <string>
 #include <sstream>
-
-// std::string spliter(std::string str, std::string s1, std::string s2)
-// {
-// 	std::string s;
-// 	std::istringstream ss(str);
-// 	std::string subs;
-// 	while(ss)
-// 	{
-// 		subs.clear();
-// 		ss >> subs;
-// 		if (subs.find(s1))
-// 			subs = s2;
-// 		s.append(subs);
-// 		s.append(" ");
-// 	}
-// 	s[s.size() - 1]
-// 	s[s.size() - 1] = '\n';
-// 	return s;
-// }
+#include <cstdlib>
 
 std::string spliter(std::string str, std::string s1, std::string s2)
 {
-	(void)s2;
-	std::string subs;
-	char *str2;
-	str2 = 
-	int pos = 0;
-	while (str[pos])
+	size_t pos;
+
+	if (s1 == s2)
+		return str;
+	pos = str.find(s1);
+	while (pos != std::string::npos) 
 	{
+		str.erase(pos, s1.size());
+		str.insert(pos, s2);
 		pos = str.find(s1);
-		if (pos)
-		{
-			subs = str;
-			subs.insert(pos, s2);
-			return subs;
-		}
+		std::cout << str << std::endl;
 	}
-	
-	return NULL;
+	return str;
 }
 
 int main(int ac, char **av)
@@ -65,29 +43,32 @@ int main(int ac, char **av)
 		std::string fileName;
 
 		fileName.append(av[1]);
-		myfile.open(fileName);
-		fileName.append(".replace");
-		newfile.open(fileName);
-		if (!myfile.is_open() || !newfile.is_open())
+		myfile.open(fileName.c_str());
+		if (myfile.is_open())
 		{
-			std::cout << "no such file\n";
+			fileName.append(".replace");
+			newfile.open(fileName.c_str());
+			if (!newfile.is_open())
+			{
+				std::cout << "no such file, or something wrrong about "<< fileName << std::endl;
+				return 1;
+			}
+		}
+		else
+		{
+			std::cout << "no such file :"<< fileName<< std::endl;
 			return 1;
 		}
 		while (std::getline(myfile, str))
 		{
-			if (spliter(str, av[2], av[3]) != NULL)
-			{
-				newfile << spliter(str, av[2], av[3]);
-				newfile << "\n";
-			}
-			else
-				newfile << str;
+			newfile << spliter(str, av[2], av[3]);
+			newfile << std::endl;
 		}
 		newfile.close();
 		myfile.close();
+		return 0;
 	}
 	else
 		std::cout << "bad inputs\n";
-	// system("leaks replace");
 	return 0;
 }
