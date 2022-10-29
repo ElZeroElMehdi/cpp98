@@ -6,7 +6,7 @@
 /*   By: eelmoham <eelmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 17:21:19 by eelmoham          #+#    #+#             */
-/*   Updated: 2022/10/23 17:21:20 by eelmoham         ###   ########.fr       */
+/*   Updated: 2022/10/29 18:37:01 by eelmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <string>
 # include <iostream>
+# include <sstream>
 
 class Zombie
 {

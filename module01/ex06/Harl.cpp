@@ -51,6 +51,7 @@ void Harl::complain( std::string level )
             (this->*addsFuns[1])();
             (this->*addsFuns[2])();
             (this->*addsFuns[3])();
+			//x++;
             break;
         }
         case 1:

@@ -40,6 +40,7 @@ void Harl::complain( std::string level )
         if (level == levels[x])
         {
             (this->*addsFuns[x])();
+			break;
         }
     }
 }
