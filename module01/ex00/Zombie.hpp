@@ -6,7 +6,7 @@
 /*   By: eelmoham <eelmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 21:25:03 by eelmoham          #+#    #+#             */
-/*   Updated: 2022/10/22 21:25:04 by eelmoham         ###   ########.fr       */
+/*   Updated: 2022/10/30 18:54:27 by eelmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ class Zombie
     public:
         Zombie();
         Zombie(std::string smiya);
-        void setName(std::string name);
         void announce();
         ~Zombie();
 };
