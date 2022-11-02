@@ -33,14 +33,15 @@ void Harl::error( void )
 void Harl::complain( std::string level )
 {
     typedef void(Harl::*funcs)();
-    funcs addsFuns[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+    funcs addsFuncs[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	std::string levels[4] = {"debug", "info", "warning", "error"};
     for (int x = 0; x < 4; x++)
     {
         if (level == levels[x])
         {
-            (this->*addsFuns[x])();
+            (this->*addsFuncs[x])();
 			break;
         }
     }
+	
 }

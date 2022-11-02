@@ -16,17 +16,21 @@ std::string HumanB::getName()
 
 HumanB::HumanB(std::string _name)
 {
+	this->WeaponB = NULL;
     this->name = _name;
 }
 
 void HumanB::attack()
 {
-    std::cout << this->name << " attacks with their " << this->WeaponB.getType() << std::endl;
+	if (this->WeaponB)
+		std::cout << this->name << " attacks with their " << this->WeaponB->getType() << std::endl;
+	else
+		std::cout << this->getName() << " can\'t attack" << std::endl;
 }
 
-void HumanB::setWeapon(Weapon wpn)
+void HumanB::setWeapon(Weapon &wpn)
 {
-	this->WeaponB = wpn;
+	this->WeaponB = &wpn;
 }
 
 HumanB::~HumanB()
