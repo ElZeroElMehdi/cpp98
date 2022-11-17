@@ -10,6 +10,11 @@ Fixed::Fixed(const Fixed &f)
 	*this = f;
 }
 
+Fixed::Fixed(const int p)
+{
+	
+}
+
 Fixed::~Fixed()
 {
 	std::cout << "Destructor called\n"; 
