@@ -1,4 +1,4 @@
-NAME = Fixed
+NAME = Fixed00
 
 cpp = c++
 
