@@ -2,6 +2,7 @@
 
 Fixed::Fixed()
 {
+	std::cout << "Default constructor called\n";
 	this->fixedPoint = 0;
 }
 
