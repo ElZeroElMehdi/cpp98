@@ -1,27 +1,28 @@
 NAME = Fixed
 
-CC = c++
+cpp = c++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = Fixed.cpp Fixed.hpp Makefile  main.cpp 
+SRCS = Fixed.cpp main.cpp  
+
+header = Fixed.hpp
+
+OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
-OBJ = $(SRC:.cpp=.o)
+$(NAME): $(OBJS)
+	$(cpp) $(FLAGS) $(OBJS) -o $(NAME)
 
-$(NAME): $(OBJ)
-        $(CC) $(CFLAGS) -o $(NAME) $(OBJ)
-
-%.o: %.cpp
-        $(CC) $(CFLAGS) -c $< -o $@
+%.o: %.cpp $(header)
+	$(cpp) $(FLAGS) -c $< -o $@
 
 clean:
-        rm -f $(OBJ)
-
+	rm -f $(OBJS)
 fclean: clean
-        rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY:all clean fclean re
