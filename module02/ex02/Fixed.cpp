@@ -3,7 +3,7 @@
 Fixed::Fixed()
 {
 	std::cout << "Default constructor called\n";
-	this->fixedPoint = 0;
+	this->setRawBits(0);
 }
 
 Fixed::Fixed(const Fixed &f)
@@ -32,7 +32,6 @@ Fixed::~Fixed()
 
 int Fixed::getRawBits() const
 {
-	// std::cout << "getRawBits member function called\n";
 	return this->fixedPoint;
 }
 
