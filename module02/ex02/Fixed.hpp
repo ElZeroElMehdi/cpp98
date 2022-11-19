@@ -14,7 +14,6 @@ class Fixed
 		Fixed(const Fixed &f);
 		Fixed (const int p);
 		Fixed (const float p);
-		Fixed & operator=(Fixed const & obj);
 		~Fixed();
 		int	getRawBits(void) const;
 		void setRawBits(int const raw);
@@ -22,6 +21,23 @@ class Fixed
 		float toFloat(void) const;
 		int toInt(void) const;
 
+		Fixed & operator=(Fixed const & rhs);
+		Fixed & operator+(Fixed const & rhs);
+		Fixed & operator*(Fixed const & rhs);
+		Fixed & operator-(Fixed const & rhs);
+		Fixed & operator/(Fixed const & rhs);
+
+		bool operator>(Fixed const & rhs);
+		bool operator<(Fixed const & rhs);
+		bool operator<=(Fixed const & rhs);
+		bool operator>=(Fixed const & rhs);
+		bool operator==(Fixed const & rhs);
+		bool operator!=(Fixed const & rhs);
+
+		Fixed & operator++(void);//++obj
+		Fixed  operator++(int);//obj++
+		Fixed & operator--(void);
+		Fixed  operator--(int);
 };
 
 std::ostream& operator<<(std::ostream &COUT, Fixed const & obj);

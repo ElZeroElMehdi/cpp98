@@ -2,32 +2,27 @@
 
 Fixed::Fixed()
 {
-	std::cout << "Default constructor called\n";
 	this->setRawBits(0);
 }
 
 Fixed::Fixed(const Fixed &f)
 {
-	std::cout << "copy constructor called\n";
 	*this = f;
 }
 
 Fixed::Fixed(const int p)
 {
-	std::cout << "int constructor called\n";
 	this->fixedPoint = p ;
 	this->fixedPoint = this->fixedPoint << this->FNumber;
 }
 
 Fixed::Fixed(const float p)
 {
-	std::cout << "float constructor called\n";
 	this->fixedPoint = std::roundf(p * (1 << this->FNumber));
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called\n"; 
 }
 
 int Fixed::getRawBits() const
@@ -35,13 +30,6 @@ int Fixed::getRawBits() const
 	return this->fixedPoint;
 }
 
-Fixed & Fixed::operator=(Fixed const & obj)
-{
-	std::cout << "Copy assignment operator called\n";
-	if (this != &obj)
-		this->fixedPoint = obj.getRawBits();
-	return (*this);
-}
 
 void Fixed::setRawBits(int const raw)
 {
@@ -63,4 +51,83 @@ float Fixed::toFloat(void) const
 std::ostream& operator<<(std::ostream &COUT, Fixed const & obj){
 	COUT << obj.toFloat();
 	return COUT;
+}
+
+Fixed & Fixed::operator=(/* Fixed *;fh,*/ Fixed const & rhs) // right hand side // lhs = rhs
+{
+	if (this != &rhs) // right hand side
+		this->fixedPoint = rhs.getRawBits(); 
+	return (*this);
+}
+
+Fixed & Fixed::operator+(Fixed const & rhs)
+{
+	if (this != &rhs)
+		this->fixedPoint += rhs.fixedPoint;
+	return (*this);
+}
+
+Fixed & Fixed::operator-(Fixed const & rhs)
+{
+	if (this != &rhs)
+		this->fixedPoint -= rhs.fixedPoint;
+	return (*this);
+}
+
+Fixed & Fixed::operator*(Fixed const & rhs)
+{
+	if (this != &rhs)
+		this->fixedPoint *= rhs.fixedPoint;
+	return (*this);
+}
+
+Fixed & Fixed::operator/(Fixed const & rhs) 
+{
+	if (this != &rhs)
+		this->fixedPoint /= rhs.fixedPoint;
+	return (*this);
+}
+
+
+bool Fixed::operator>(Fixed const & rhs)
+{
+	return (this->fixedPoint > rhs.fixedPoint);
+}
+
+bool Fixed::operator<(Fixed const & rhs)
+{
+	return (this->fixedPoint < rhs.fixedPoint);
+}
+
+bool Fixed::operator>=(Fixed const & rhs)
+{
+	return (this->fixedPoint >= rhs.fixedPoint);
+}
+
+bool Fixed::operator<=(Fixed const & rhs)
+{
+	return (this->fixedPoint <= rhs.fixedPoint);
+}
+
+bool Fixed::operator==(Fixed const & rhs)
+{
+	return (this->fixedPoint == rhs.fixedPoint);
+}
+
+bool Fixed::operator!=(Fixed const & rhs)
+{
+	return (this->fixedPoint != rhs.fixedPoint);
+}
+
+Fixed & Fixed::operator++(void)
+{
+	this->fixedPoint += 1;
+	return *this;
+}
+
+Fixed Fixed::operator++(int)
+{
+	Fixed tmp(*this);
+	this->fixedPoint += 1;
+	return tmp;
 }
