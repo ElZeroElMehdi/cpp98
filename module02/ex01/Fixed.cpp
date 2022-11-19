@@ -8,18 +8,20 @@ Fixed::Fixed()
 
 Fixed::Fixed(const Fixed &f)
 {
-	std::cout << "Copy constructor called\n";
+	std::cout << "copy constructor called\n";
 	*this = f;
 }
 
 Fixed::Fixed(const int p)
 {
+	std::cout << "int constructor called\n";
 	this->fixedPoint = p ;
 	this->fixedPoint = this->fixedPoint << this->FNumber;
 }
 
 Fixed::Fixed(const float p)
 {
+	std::cout << "float constructor called\n";
 	this->fixedPoint = std::roundf(p * (1 << this->FNumber));
 }
 
@@ -30,7 +32,7 @@ Fixed::~Fixed()
 
 int Fixed::getRawBits() const
 {
-	std::cout << "getRawBits member function called\n";
+	// std::cout << "getRawBits member function called\n";
 	return this->fixedPoint;
 }
 
