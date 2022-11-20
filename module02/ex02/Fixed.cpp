@@ -27,12 +27,14 @@ Fixed::~Fixed()
 
 int Fixed::getRawBits() const
 {
+
 	return this->fixedPoint;
 }
 
 
 void Fixed::setRawBits(int const raw)
 {
+
 	this->fixedPoint = raw;
 }
 
@@ -130,4 +132,37 @@ Fixed Fixed::operator++(int)
 	Fixed tmp(*this);
 	this->fixedPoint += 1;
 	return tmp;
+}
+
+
+Fixed Fixed::min(Fixed &a, Fixed &b)
+{
+	if(a.getRawBits() > b.getRawBits())
+		return b;
+	else
+		return a;
+}
+
+Fixed Fixed::min(const Fixed &a, const Fixed &b)
+{
+	if(a.getRawBits() > b.getRawBits())
+		return b;
+	else
+		return a;
+}
+
+Fixed Fixed::max(Fixed &a, Fixed &b)
+{
+	if(a.getRawBits() > b.getRawBits())
+		return a;
+	else
+		return b;
+}
+
+Fixed Fixed::max(const Fixed &a, const Fixed &b)
+{
+	if(a.getRawBits() > b.getRawBits())
+		return a;
+	else
+		return b;
 }
