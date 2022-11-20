@@ -27,14 +27,12 @@ Fixed::~Fixed()
 
 int Fixed::getRawBits() const
 {
-
 	return this->fixedPoint;
 }
 
 
 void Fixed::setRawBits(int const raw)
 {
-
 	this->fixedPoint = raw;
 }
 
@@ -64,29 +62,25 @@ Fixed & Fixed::operator=(/* Fixed *;fh,*/ Fixed const & rhs) // right hand side 
 
 Fixed & Fixed::operator+(Fixed const & rhs)
 {
-	if (this != &rhs)
-		this->fixedPoint += rhs.fixedPoint;
+	this->fixedPoint += rhs.fixedPoint;
 	return (*this);
 }
 
 Fixed & Fixed::operator-(Fixed const & rhs)
 {
-	if (this != &rhs)
-		this->fixedPoint -= rhs.fixedPoint;
+	this->fixedPoint -= rhs.fixedPoint;
 	return (*this);
 }
 
 Fixed & Fixed::operator*(Fixed const & rhs)
 {
-	if (this != &rhs)
-		this->fixedPoint *= rhs.fixedPoint;
+	this->fixedPoint *= rhs.toFloat();
 	return (*this);
 }
 
 Fixed & Fixed::operator/(Fixed const & rhs) 
 {
-	if (this != &rhs)
-		this->fixedPoint /= rhs.fixedPoint;
+	this->fixedPoint /= rhs.toFloat();
 	return (*this);
 }
 
