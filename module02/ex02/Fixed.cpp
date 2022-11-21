@@ -44,7 +44,7 @@ int Fixed::toInt(void) const
 
 float Fixed::toFloat(void) const
 {
-	return ((float)this->fixedPoint / (float)(1 << this->FNumber));
+	return (this->fixedPoint / (float)(1 << this->FNumber));
 }
 
 
@@ -83,7 +83,6 @@ Fixed & Fixed::operator/(Fixed const & rhs)
 	this->fixedPoint /= rhs.toFloat();
 	return (*this);
 }
-
 
 bool Fixed::operator>(Fixed const & rhs)
 {
