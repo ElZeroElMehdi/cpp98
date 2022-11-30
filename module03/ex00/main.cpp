@@ -1,11 +1,10 @@
-#include "ClapTrap.hpp";
+#include "ClapTrap.hpp"
 
 int main()
 {
-    ClapTrap s();
-    // std::string *name = new std::string("mehdi");
-    // ClapTrap *x = new ClapTrap("mehd");
+    std::string name = "mehdi";
 
-
-
+    ClapTrap s(name);
+    s.attack("cc");
+    s.takeDamage(12);
 }
