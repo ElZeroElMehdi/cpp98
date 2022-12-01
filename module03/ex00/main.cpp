@@ -2,9 +2,8 @@
 
 int main()
 {
-    std::string name = "mehdi";
 
-    ClapTrap s(name);
+    ClapTrap s("mehdi");
     s.attack("cc");
     s.takeDamage(12);
 }

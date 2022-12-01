@@ -18,7 +18,10 @@ ClapTrap::ClapTrap(const ClapTrap &New)
 ClapTrap & ClapTrap::operator=(const ClapTrap &rhs)
 {
     std::cout << "assigment operator" << std::endl;
-    *this = rhs;
+    this->Name = rhs.Name;
+    this->HitPoint = rhs.HitPoint;
+    this->EnergyPoint = rhs.EnergyPoint;
+    this->AttackDamage = rhs.AttackDamage;
     return (*this);
 }
 
