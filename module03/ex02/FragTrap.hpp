@@ -1,11 +1,15 @@
 #ifndef FRAGTRAP_HPP
 #define FRAGTRAP_HPP
 
-class FragTrap
+#include "ClapTrap.hpp"
+
+class FragTrap : public ClapTrap
 {
-    private:
     public:
         FragTrap();
+        FragTrap(std::string _name);
+        FragTrap(const FragTrap &New);
+        FragTrap & operator=(const FragTrap &rhs);
         ~FragTrap();
 };
 
