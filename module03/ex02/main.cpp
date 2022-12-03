@@ -12,5 +12,7 @@ int main()
         FragTrap fr(samaristan);
         fr.attack("SuperHero");
         frg->attack("Jocke");
+
+        frg->highFivesGuys();
     }
 }
