@@ -4,9 +4,9 @@ cpp = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = ClapTrap.cpp  main.cpp  ScavTrap.cpp
+SRCS = ClapTrap.cpp  main.cpp  ScavTrap.cpp FragTrap.cpp
 
-header = ClapTrap.hpp  ScavTrap.hpp
+headers = ClapTrap.hpp  ScavTrap.hpp FragTrap.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -15,7 +15,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(cpp) $(FLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.cpp $(header)
+%.o: %.cpp $(headers)
 	$(cpp) $(FLAGS) -c $< -o $@
 
 clean:

@@ -1,12 +1,16 @@
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
-    // ScavTrap samaristan("samaristan");
-    // samaristan.attack("police");
-    // samaristan.takeDamage(10);
-    // samaristan.takeDamage(10);
-    // samaristan.takeDamage(10);
-    // samaristan.takeDamage(10);
-    // samaristan.guardGate();
+    {
+        FragTrap samaristan("samaristan");
+        FragTrap *frg = new FragTrap("Batman");
+
+        samaristan.attack("spiderMAn");
+        samaristan.highFivesGuys();
+        samaristan.beRepaired(100);
+        FragTrap fr(samaristan);
+        fr.attack("SuperHero");
+        frg->attack("Jocke");
+    }
 }

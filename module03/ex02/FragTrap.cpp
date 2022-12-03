@@ -5,7 +5,7 @@ FragTrap::FragTrap()
     std::cout << "FragTrap constructor"<< std::endl;
 }
 
-FragTrap::FragTrap(std::string _mame)
+FragTrap::FragTrap(std::string _name)
 {
      std::cout << "FragTrap : passed name in parametre constructor" << std::endl;
     this->Name = _name;
@@ -17,7 +17,7 @@ FragTrap::FragTrap(const FragTrap &New)
     *this = New;
 }
 
-FragTrap & operator=(const FragTrap &rhs)
+FragTrap & FragTrap::operator=(const FragTrap &rhs)
 {
     std::cout << "FragTrap: assigment operator" << std::endl;
     this->Name = rhs.Name;
@@ -30,4 +30,9 @@ FragTrap & operator=(const FragTrap &rhs)
 FragTrap::~FragTrap()
 {
     std::cout << "FragTrap: destructor" << std::endl;
+}
+
+void FragTrap::highFivesGuys(void)
+{
+    std::cout << "FragTrap : high Five" << std::endl;
 }
