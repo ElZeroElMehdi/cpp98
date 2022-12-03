@@ -27,7 +27,11 @@ ScavTrap::ScavTrap(const ScavTrap &New):ClapTrap() //why this error in linux
 ScavTrap & ScavTrap::operator=(const ScavTrap &rhs)
 {
     std::cout << "ScavTrap: assigment operator" << std::endl;
-    *this = rhs;
+    // *this = rhs;
+    this->Name = rhs.Name;
+    this->HitPoint = rhs.HitPoint;
+    this->EnergyPoint = rhs.EnergyPoint;
+    this->AttackDamage = rhs.AttackDamage;
     return (*this);
 }
 
