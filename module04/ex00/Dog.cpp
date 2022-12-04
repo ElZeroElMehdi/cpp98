@@ -6,7 +6,7 @@ Dog::Dog()
     this->type = "Dog";
 }
 
-Dog::Dog(const Dog &New)
+Dog::Dog(const Dog &New):Animal()
 {
     this->type = New.type;
 }
@@ -18,7 +18,7 @@ Dog Dog::operator=(const Dog &rhs)
     return(*this);
 }
 
-void Dog::makeSound()
+void Dog::makeSound() const
 {
     std::cout << "Dogs Sound" << std::endl;
 }

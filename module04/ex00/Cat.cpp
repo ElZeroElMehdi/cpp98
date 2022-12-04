@@ -6,7 +6,7 @@ Cat::Cat()
     this->type = "Cat";
 }
 
-Cat::Cat(const Cat &New)
+Cat::Cat(const Cat &New):Animal()
 {
     this->type = New.type;
 }
@@ -19,7 +19,7 @@ Cat Cat::operator=(const Cat &rhs)
 }
 
 
-void Cat::makeSound()
+void Cat::makeSound() const
 {
     std::cout << "Cats Sound" << std::endl;
 }
