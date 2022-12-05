@@ -6,13 +6,14 @@ class Animal
 {
     protected:
         std::string type;
+
     public:
         Animal();
         Animal(const Animal &New);
         Animal operator=(const Animal &rhs);
         virtual void makeSound(void) const;
-        std::string getType() const ; 
-        ~Animal();
+        std::string getType() const;
+        virtual ~Animal(); // virtual Destructor for call destructor in the child class
 };
 
 #endif

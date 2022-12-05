@@ -45,7 +45,7 @@ void ClapTrap::attack(const std::string& target)
         std::cout << this->Name <<" can\'t Attack , cause no HitPoint and No energyPint" << std::endl;
     else
     {
-        std::cout << "ClapTrap:  " << this->Name << " attacks " << target <<", causing" << this->AttackDamage << "points of damage!" << std::endl;
+        std::cout << "ClapTrap:  " << this->Name << " attacks " << target <<", causing " << this->AttackDamage << "points of damage!" << std::endl;
         this->EnergyPoint--;
     }
 }

@@ -72,7 +72,25 @@
 		"__functional_base_03": "cpp",
 		"fstream": "cpp",
 		"iomanip": "cpp",
-		"stack": "cpp"
+		"stack": "cpp",
+		"__tree": "cpp",
+		"cfenv": "cpp",
+		"cinttypes": "cpp",
+		"condition_variable": "cpp",
+		"csetjmp": "cpp",
+		"csignal": "cpp",
+		"forward_list": "cpp",
+		"future": "cpp",
+		"list": "cpp",
+		"map": "cpp",
+		"queue": "cpp",
+		"regex": "cpp",
+		"scoped_allocator": "cpp",
+		"set": "cpp",
+		"thread": "cpp",
+		"typeindex": "cpp",
+		"unordered_set": "cpp",
+		"valarray": "cpp"
 	},
 	"C_Cpp.errorSquiggles": "Disabled"
 }

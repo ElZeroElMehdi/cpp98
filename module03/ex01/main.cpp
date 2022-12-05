@@ -2,11 +2,9 @@
 
 int main()
 {
-    ScavTrap samaristan("samaristan");
-    samaristan.attack("police");
-    samaristan.takeDamage(10);
-    samaristan.takeDamage(10);
-    samaristan.takeDamage(10);
-    samaristan.takeDamage(10);
-    samaristan.guardGate();
+    ScavTrap sc(*(new ScavTrap("samaristan")));
+
+    sc.attack("Batman");
+
+
 }

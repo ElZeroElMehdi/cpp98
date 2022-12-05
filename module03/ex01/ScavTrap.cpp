@@ -18,7 +18,7 @@ ScavTrap::ScavTrap(std::string _name)
     this->AttackDamage = 20;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &New):ClapTrap() //why this error in linux
+ScavTrap::ScavTrap(const ScavTrap &New) //in other version of compiler maybe its work with  adding :BaseClasse()
 {
     std::cout << "ScavTrap: Copy Constructor" << std::endl;
     *this = New;
@@ -27,7 +27,6 @@ ScavTrap::ScavTrap(const ScavTrap &New):ClapTrap() //why this error in linux
 ScavTrap & ScavTrap::operator=(const ScavTrap &rhs)
 {
     std::cout << "ScavTrap: assigment operator" << std::endl;
-    // *this = rhs;
     this->Name = rhs.Name;
     this->HitPoint = rhs.HitPoint;
     this->EnergyPoint = rhs.EnergyPoint;
