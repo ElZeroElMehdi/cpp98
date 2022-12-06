@@ -18,12 +18,12 @@ int main()
     delete j;
     delete meta;
 
-    Dog *WrongDog  = new Dog();
-    Cat *WrongCat  = new Cat();
+    // Dog *WrongDog  = new Dog();
+    // Cat *WrongCat  = new Cat();
 
-    WrongDog->makeSound();
-    WrongCat->makeSound();
-    delete WrongDog;
-    delete WrongCat;
+    // WrongDog->makeSound();
+    // WrongCat->makeSound();
+    // delete WrongDog;
+    // delete WrongCat;
     return 0;
 }
