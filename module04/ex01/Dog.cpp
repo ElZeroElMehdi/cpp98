@@ -7,15 +7,18 @@ Dog::Dog()
     this->_brain = new Brain();
 }
 
-Dog::Dog(const Dog &New):Animal()
+Dog::Dog(const Dog &New)
 {
     this->type = New.type;
+    delete this->_brain;
+    this->_brain = new Brain();
 }
 
 Dog Dog::operator=(const Dog &rhs)
 {
     std::cout << "Dog: Assigment Operator" << std::endl;
     this->type = rhs.type;
+    this->_brain = rhs._brain;
     return(*this);
 }
 

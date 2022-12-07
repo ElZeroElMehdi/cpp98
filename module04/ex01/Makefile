@@ -1,4 +1,4 @@
-NAME = Poly
+NAME = Brain
 
 cpp = c++
 

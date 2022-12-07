@@ -10,12 +10,16 @@ Cat::Cat()
 Cat::Cat(const Cat &New):Animal()
 {
     this->type = New.type;
+    delete this->_brain;
+    this->_brain = new Brain();
 }
 
 Cat Cat::operator=(const Cat &rhs)
 {
     std::cout << "Cat: Assigment Operator" << std::endl;
     this->type = rhs.type;
+    delete this->_brain;
+    this->_brain = new Brain();
     return(*this);
 }
 
