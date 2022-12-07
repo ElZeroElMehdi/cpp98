@@ -13,7 +13,8 @@ Brain::Brain(const Brain &New)
 
 Brain Brain::operator=(const Brain &rhs)
 {
-    *this = rhs;
+    for (int i = 0; i < 100; i++)
+        this->ideas[i] = rhs.ideas[i];
     return (*this);
 }
 

@@ -4,9 +4,9 @@ cpp = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = Animal.cpp Cat.cpp Dog.cpp main.cpp WrongAnimal.cpp  WrongCat.cpp
+SRCS = Animal.cpp Cat.cpp Dog.cpp main.cpp WrongAnimal.cpp  WrongCat.cpp Brain.cpp
 
-headers = Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp  WrongCat.hpp
+headers = Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp  WrongCat.hpp Brain.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 
