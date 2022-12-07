@@ -21,9 +21,18 @@ int main()
         }
 
         for (int i = 0; i < 10; i++)
+        {
+            std::cout << "****************************************" << std::endl;
             std::cout << N[i]->getType() << std::endl;
+            N[i]->makeSound();
+            std::cout << "****************************************" << std::endl;
+        }
         for (int i = 0; i < 10; i++)
+        {
+            std::cout << "|****************************************|" << std::endl;
             delete N[i];
+            std::cout << "|****************************************|" << std::endl;
+        }
 
     system("leaks Brain");
     return 0;
