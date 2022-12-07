@@ -4,6 +4,7 @@ Dog::Dog()
 {
     std::cout << "Dog Constructor" << std::endl;
     this->type = "Dog";
+    this->_brain = new Brain();
 }
 
 Dog::Dog(const Dog &New):Animal()
@@ -26,4 +27,6 @@ void Dog::makeSound() const
 Dog::~Dog()
 {
     std::cout << "Dog Destructor" << std::endl;
+    delete this->_brain;
+    std::cout << "Dog Destructor : deleting _brain" << std::endl;
 }

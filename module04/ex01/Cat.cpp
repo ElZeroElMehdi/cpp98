@@ -4,6 +4,7 @@ Cat::Cat()
 {
     std::cout << "Cat Constructor" << std::endl;
     this->type = "Cat";
+    this->_brain = new Brain();
 }
 
 Cat::Cat(const Cat &New):Animal()
@@ -27,4 +28,6 @@ void Cat::makeSound() const
 Cat::~Cat()
 {
     std::cout << "Cat Destructor" << std::endl;
+    delete this->_brain;
+    std::cout << "Cat Destructor : deleting _brain" << std::endl;
 }
