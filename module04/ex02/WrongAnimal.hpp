@@ -10,7 +10,7 @@ class WrongAnimal
     public:
         WrongAnimal();
         WrongAnimal(const WrongAnimal &New);
-        WrongAnimal operator=(const WrongAnimal &rhs);
+        WrongAnimal& operator=(const WrongAnimal &rhs);
         void makeSound(void) const;
         std::string getType() const;
         virtual ~WrongAnimal(); // virtual Destructor for call destructor in the child class

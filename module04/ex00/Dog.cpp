@@ -11,7 +11,7 @@ Dog::Dog(const Dog &New):Animal()
     this->type = New.type;
 }
 
-Dog Dog::operator=(const Dog &rhs)
+Dog& Dog::operator=(const Dog &rhs)
 {
     std::cout << "Dog: Assigment Operator" << std::endl;
     this->type = rhs.type;

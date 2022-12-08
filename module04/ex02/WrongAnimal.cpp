@@ -11,7 +11,7 @@ WrongAnimal::WrongAnimal(const WrongAnimal &New)
     this->type = New.type;
 }
 
-WrongAnimal WrongAnimal::operator=(const WrongAnimal &rhs)
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal &rhs)
 {
     std::cout << "WrongAnimal: Assigment Operator" << std::endl;
     this->type = rhs.type;

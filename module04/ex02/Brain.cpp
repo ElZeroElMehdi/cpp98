@@ -11,7 +11,7 @@ Brain::Brain(const Brain &New)
         this->ideas[i] = New.ideas[i];
 }
 
-Brain Brain::operator=(const Brain &rhs)
+Brain& Brain::operator=(const Brain &rhs)
 {
     for (int i = 0; i < 100; i++)
         this->ideas[i] = rhs.ideas[i];

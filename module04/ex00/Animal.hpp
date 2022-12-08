@@ -10,7 +10,7 @@ class Animal
     public:
         Animal();
         Animal(const Animal &New);
-        Animal operator=(const Animal &rhs);
+        Animal& operator=(const Animal &rhs);
         virtual void makeSound(void) const;
         std::string getType() const;
         virtual ~Animal(); // virtual Destructor for call destructor in the child class

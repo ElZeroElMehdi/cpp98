@@ -14,7 +14,7 @@ Dog::Dog(const Dog &New)
     this->_brain = new Brain();
 }
 
-Dog Dog::operator=(const Dog &rhs)
+Dog& Dog::operator=(const Dog &rhs)
 {
     std::cout << "Dog: Assigment Operator" << std::endl;
     this->type = rhs.type;

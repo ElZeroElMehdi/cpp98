@@ -11,7 +11,7 @@ WrongCat::WrongCat(const WrongCat &New):WrongAnimal() //remove it in old compile
     this->type = New.type;
 }
 
-WrongCat WrongCat::operator=(const WrongCat &rhs)
+WrongCat& WrongCat::operator=(const WrongCat &rhs)
 {
     std::cout << "WrongCat: Assigment Operator" << std::endl;
     this->type = rhs.type;

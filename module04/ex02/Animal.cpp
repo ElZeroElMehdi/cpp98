@@ -11,10 +11,13 @@ Animal::Animal(const Animal &New)
     this->type = New.type;
 }
 
-Animal Animal::operator=(const Animal &rhs)
+Animal& Animal::operator=(const Animal &rhs)
 {
-    std::cout << "Animal: Assigment Operator" << std::endl;
-    this->type = rhs.type;
+    if (this != &rhs)
+    {
+        std::cout << "Animal: Assigment Operator" << std::endl;
+        this->type = rhs.type;
+    }
     return (*this);
 }
 
