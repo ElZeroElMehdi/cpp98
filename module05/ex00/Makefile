@@ -1,4 +1,4 @@
-NAME = Poly
+NAME = Bureaucrat
 
 cpp = c++
 
