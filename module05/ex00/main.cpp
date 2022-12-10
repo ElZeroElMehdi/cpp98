@@ -1,15 +1,14 @@
-#include "exception.hpp"
+#include "Bureaucrat.hpp"
 
 int main ()
 {
     try
     {
-        if (1>2)
-            throw exception("1 less then 2");
+        Bureaucrat *s = new Bureaucrat(160, "mehdi");
+        s->getName();
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
-    
 }

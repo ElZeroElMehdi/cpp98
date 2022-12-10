@@ -8,14 +8,15 @@ Bureaucrat::Bureaucrat()
 Bureaucrat::Bureaucrat(int _grade, std::string _name)
 {
     std::cout << "Bureaucrat prametrize Constructor" << std::endl;
-    // if (_grade >= 1 && _grade <= 150)
-    //     this->grade = _grade;
-    // else
-    //     throw std::
-    // this->Name = _name;
+    if (_grade >= 1 && _grade <= 150)
+        this->grade = _grade;
+    else
+        throw Bureaucrat::GradeTooHighException();
+    this->Name = _name;
 }
 
-std::string Bureaucrat::getName() const{
+std::string Bureaucrat::getName() const
+{
     return this->Name;
 }
 
@@ -40,4 +41,12 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat &rhs)
 Bureaucrat::~Bureaucrat()
 {
     std::cout << "this is Bureaucrat Destructor" << std::endl;
+}
+
+const char * Bureaucrat::GradeTooHighException::what() const throw(){
+    return "Grade Too High Exception";
+}
+
+const char * Bureaucrat::GradeTooLowException::what() const throw(){
+    return "Grade Too Low Exception";
 }
