@@ -1,13 +1,12 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
-// #include <iostream>
 #include <iostream>
 
 class Bureaucrat
 {
 	private:
-		std::string Name;
+		const std::string Name;
 		int grade;
 	public:
 		int getGrade() const ; //ok
@@ -29,7 +28,9 @@ class Bureaucrat
 			public:
 				virtual const char* what() const throw();
 		};
-
+		
+		void increment();
+		void decrement();
 };
 
 std::ostream& operator<<(std::ostream &COUT, Bureaucrat const & obj);

@@ -1,21 +1,19 @@
 #include "Bureaucrat.hpp"
 
-
-//task encrement;
 int main ()
 {
     try
     {
-        Bureaucrat *s = new Bureaucrat(1, "mehdi");
-        // s->getName();
-
+        Bureaucrat s(150, "mehdi");
         std::cout << s;
-        delete s;
-
-        // system("leaks Bureaucrat");
+        // s.increment();
+        s.decrement();
+        std::cout << s;
+        
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
+    system("leaks Bureaucrat");
 }
