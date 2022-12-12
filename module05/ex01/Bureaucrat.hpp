@@ -2,7 +2,7 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
-
+class From;
 class Bureaucrat
 {
 	private:
@@ -31,6 +31,7 @@ class Bureaucrat
 		
 		void increment();
 		void decrement();
+		//  void Bureaucrat::signForm()
 };
 
 std::ostream& operator<<(std::ostream &COUT, Bureaucrat const & obj);

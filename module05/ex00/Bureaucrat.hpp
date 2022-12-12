@@ -10,7 +10,7 @@ class Bureaucrat
 		int grade;
 	public:
 		int getGrade() const ; //ok
-		std::string getName() const; //ok
+		const std::string &getName() const; //ok
 		Bureaucrat(); //ok
 		Bureaucrat(int _grade, std::string _name); //..
 		Bureaucrat(const Bureaucrat &New); //ok
@@ -33,6 +33,6 @@ class Bureaucrat
 		void decrement();
 };
 
-std::ostream& operator<<(std::ostream &COUT, Bureaucrat const & obj);
+// std::ostream& operator<<(std::ostream &COUT, Bureaucrat const & obj);
 
 #endif

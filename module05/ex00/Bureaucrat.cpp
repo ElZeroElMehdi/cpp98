@@ -20,7 +20,7 @@ Bureaucrat::Bureaucrat(int _grade, std::string _name) : Name(_name)
     }
 }
 
-std::string Bureaucrat::getName() const
+const std::string &Bureaucrat::getName() const
 {
     return this->Name;
 }
@@ -30,7 +30,7 @@ int Bureaucrat::getGrade() const
     return this->grade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &New) : Name(New.getName())
+Bureaucrat::Bureaucrat(const Bureaucrat &New): Name(New.getName())
 {
     this->grade = New.getGrade();
 }
@@ -59,12 +59,12 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
     return "Grade Too Low Exception";
 }
 
-std::ostream &operator<<(std::ostream &COUT, Bureaucrat const &obj)
-{
+// std::ostream &operator<<(std::ostream &COUT, Bureaucrat const &obj)
+// {
 
-    COUT << obj.getName() << ", bureaucrat grade " << obj.getGrade() << '.' << std::endl;
-    return COUT;
-}
+//     COUT << obj.getName() << ", bureaucrat grade " << obj.getGrade() << '.' << std::endl;
+//     return COUT;
+// }
 
 void Bureaucrat::increment()
 {

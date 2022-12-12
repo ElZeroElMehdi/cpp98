@@ -82,3 +82,8 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs)
         else
             this->grade++;
     }
+    
+    // void Bureaucrat::signForm()
+    // {
+    //     // std::cou
+    // }
