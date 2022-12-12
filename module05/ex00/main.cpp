@@ -10,7 +10,7 @@ int main ()
         // s.decrement();
         // s.getName() = "youne";
         std::cout << s.getName() << std::endl;
-        // std::cout<<s;
+        std::cout<<s;
         
     }
     catch(const std::exception& e)

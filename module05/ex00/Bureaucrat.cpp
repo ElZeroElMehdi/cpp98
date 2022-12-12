@@ -59,12 +59,12 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
     return "Grade Too Low Exception";
 }
 
-// std::ostream &operator<<(std::ostream &COUT, Bureaucrat const &obj)
-// {
+std::ostream &operator<<(std::ostream &COUT, Bureaucrat const &obj)
+{
 
-//     COUT << obj.getName() << ", bureaucrat grade " << obj.getGrade() << '.' << std::endl;
-//     return COUT;
-// }
+    COUT << obj.getName() << ", bureaucrat grade " << obj.getGrade() << '.' << std::endl;
+    return COUT;
+}
 
 void Bureaucrat::increment()
 {

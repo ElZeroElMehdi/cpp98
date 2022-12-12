@@ -33,6 +33,6 @@ class Bureaucrat
 		void decrement();
 };
 
-// std::ostream& operator<<(std::ostream &COUT, Bureaucrat const & obj);
+std::ostream& operator<<(std::ostream &COUT, Bureaucrat const & obj);
 
 #endif
