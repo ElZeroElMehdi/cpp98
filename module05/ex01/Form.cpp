@@ -8,7 +8,7 @@ Form::Form() : Name(""), grade_to_sign(0), grade_to_execute(0)
 
 Form::Form(const std::string _name, bool _is_sign, const int _grade_sig, const int _grade_exe) : Name(_name), grade_to_sign(_grade_sig), grade_to_execute(_grade_exe)
 {
-    std::cout << "parametrize Constructor" << std::endl;
+    std::cout << "parameterized Constructor" << std::endl;
     this->is_signed = _is_sign;
 }
 

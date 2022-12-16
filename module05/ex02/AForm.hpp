@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include "Bureaucrat.hpp"
+#include <fstream>
+#include <string>
 
 class Bureaucrat; //forward declaration
 
@@ -27,7 +29,8 @@ class AForm
         void beSigned(const Bureaucrat &br);
 
         // virtual void form_to_Aform(void) const = 0; //just for make this class abstract class
-        virtual void execute(Bureaucrat const & executor) const = 0;
+        void execute(Bureaucrat const & executor) const;
+        virtual void action() const = 0;
         class GradeTooHighException : public  std::exception
 		{
 			public:
