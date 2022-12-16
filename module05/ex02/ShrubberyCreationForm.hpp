@@ -2,7 +2,7 @@
 #define SHRUBBERYCREATIONFORM_HPP
 
 #include <iostream>
-#include "Aform.hpp"
+#include "./AForm.hpp"
 
 class ShrubberyCreationForm : public AForm
 {
@@ -10,9 +10,12 @@ class ShrubberyCreationForm : public AForm
         std::string target;
     public:
         ShrubberyCreationForm();
+        ShrubberyCreationForm(std::string _target);
         ShrubberyCreationForm(const ShrubberyCreationForm &scf);
         ShrubberyCreationForm& operator=(const ShrubberyCreationForm &rhs);
         ~ShrubberyCreationForm();
+        const std::string& getTarget() const;
+        void setTarget(std::string tr);
 };
 
 #endif
