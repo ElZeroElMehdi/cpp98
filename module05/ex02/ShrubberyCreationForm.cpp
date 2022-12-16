@@ -19,7 +19,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string sh_name, bool sh_
     std::cout << "parametrized Constructor" << std::endl;
 }
 
-ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &rhs)
+ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm &rhs)
 {
     this->target = rhs.target;
     return *this;
