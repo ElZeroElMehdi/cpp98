@@ -10,6 +10,7 @@ class PresidentialPardonForm
         PresidentialPardonForm(const PresidentialPardonForm &ppf);
         PresidentialPardonForm& operator=(const PresidentialPardonForm &rhs);
         ~PresidentialPardonForm();
+        void action() const;
 };
 
 

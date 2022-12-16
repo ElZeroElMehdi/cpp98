@@ -12,6 +12,7 @@ class RobotomyRequestForm
         RobotomyRequestForm(const RobotomyRequestForm &rrf);
         RobotomyRequestForm& operator=(const RobotomyRequestForm &rhs);
         ~RobotomyRequestForm();
+        void action() const;
 };
 
 

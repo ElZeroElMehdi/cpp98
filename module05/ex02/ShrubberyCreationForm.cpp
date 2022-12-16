@@ -32,30 +32,23 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 
 void ShrubberyCreationForm::action() const
 {
-    if (this->getGradeToSign() == 145 || this->getGradeToExe() == 137)
-    {
-        std::ofstream outfile;
-        std::string fileName = this->target + "__shrubbery";
-        outfile.open(fileName);
-        outfile << "    oxoxoo    ooxoo" << std::endl;
-        outfile << "  ooxoxo oo  oxoxooo" << std::endl;
-        outfile << " oooo xxoxoo ooo ooox" << std::endl;
-        outfile << "  oxo o oxoxo  xoxxoxo" << std::endl;
-        outfile << "  oxo xooxoooo o ooo" << std::endl;
-        outfile << "    ooo\oo\  /o/o" << std::endl;
-        outfile << "        \  \/ /" << std::endl;
-        outfile << "         |   /" << std::endl;
-        outfile << "         |  |" << std::endl;
-        outfile << "         | D|" << std::endl;
-        outfile << "         |  |" << std::endl;
-        outfile << "         |  |" << std::endl;
-        outfile << "         |  |" << std::endl;
-        outfile << "  ______/____\____" << std::endl;
-        outfile << "  .....//||||\...." << std::endl;
-        outfile.close();
-    }
-    else
-    {
-        std::cout << "this ShrubberyCreationForm cant excute" << std::endl;
-    }
+    std::ofstream outfile;
+    std::string fileName = this->target + "__shrubbery";
+    outfile.open(fileName);
+    outfile << "    oxoxoo    ooxoo" << std::endl;
+    outfile << "  ooxoxo oo  oxoxooo" << std::endl;
+    outfile << " oooo xxoxoo ooo ooox" << std::endl;
+    outfile << "  oxo o oxoxo  xoxxoxo" << std::endl;
+    outfile << "  oxo xooxoooo o ooo" << std::endl;
+    outfile << "    ooo\oo\  /o/o" << std::endl;
+    outfile << "        \  \/ /" << std::endl;
+    outfile << "         |   /" << std::endl;
+    outfile << "         |  |" << std::endl;
+    outfile << "         | D|" << std::endl;
+    outfile << "         |  |" << std::endl;
+    outfile << "         |  |" << std::endl;
+    outfile << "         |  |" << std::endl;
+    outfile << "  ______/____\____" << std::endl;
+    outfile << "  .....//||||\...." << std::endl;
+    outfile.close();
 }
