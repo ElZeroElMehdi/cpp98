@@ -5,7 +5,8 @@ ShrubberyCreationForm::ShrubberyCreationForm()
     std::cout << "ShrubberyCreationForm Constructor" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string &tr){
+ShrubberyCreationForm::ShrubberyCreationForm(std::string tr){
+    std::cout << "ShrubberyCreationForm Constructor with target" << std::endl;
     this->target = tr;
 }
 
@@ -14,10 +15,11 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &scf)
     this->target = scf.target;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string sh_name, bool sh_is_sign, const int sh_grade_sig, const int sh_grade_exe) : AForm(sh_name, sh_is_sign, sh_grade_sig, sh_grade_exe)
-{
-    std::cout << "parametrized Constructor" << std::endl;
-}
+// ShrubberyCreationForm::ShrubberyCreationForm(std::string tr, const std::string sh_name, bool sh_is_sign, const int sh_grade_sig, const int sh_grade_exe) : AForm(sh_name, sh_is_sign, sh_grade_sig, sh_grade_exe)
+// {
+//     this->target = tr;
+//     std::cout << "parametrized Constructor" << std::endl;
+// }
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm &rhs)
 {

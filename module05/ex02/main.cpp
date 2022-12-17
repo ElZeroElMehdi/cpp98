@@ -6,8 +6,6 @@
 
 int main(void) 
 {
-	ShrubberyCreationForm x("mehdi", true, 1, 5);
-
-
+	ShrubberyCreationForm x("mehdi");
     std::cout << "his name is :"<< x.getName() << std::endl;
 }

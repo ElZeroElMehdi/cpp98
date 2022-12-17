@@ -3,17 +3,18 @@
 RobotomyRequestForm::RobotomyRequestForm()
 {
     this->target = "";
-    std::cout << "Default Constructor" << std::endl;
+    std::cout << "RobotomyRequestForm Default Constructor" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string _tr)
 {
     this->target = _tr;
 }
-RobotomyRequestForm::RobotomyRequestForm(const std::string sh_name, bool sh_is_sign, const int sh_grade_sig, const int sh_grade_exe) : AForm(sh_name, sh_is_sign, sh_grade_sig, sh_grade_exe)
-{
-    std::cout << "parametrized Constructor" << std::endl;
-}
+// RobotomyRequestForm::RobotomyRequestForm(std::string tr, const std::string sh_name, bool sh_is_sign, const int sh_grade_sig, const int sh_grade_exe) : AForm(sh_name, sh_is_sign, sh_grade_sig, sh_grade_exe)
+// {
+//     this->target = tr;
+//     std::cout << "parametrized Constructor" << std::endl;
+// }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &rrf)
 {
@@ -32,9 +33,9 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 void RobotomyRequestForm::action() const
 {
-    srand(time(0)); /* seed used to initialize random number generators */
+    srand(time(NULL));
 	if (rand() % 2 == 0)
-		std::cout << this << " Has been robotomized successfully.." << std::endl;
+		std::cout << this->target << "has been robotomized successfully." << std::endl;
 	else
-		std::cout << target << " The robot1omy failed.." << std::endl;
+		std::cout << this->target << " robotomy failed." << std::endl;
 }
