@@ -7,10 +7,5 @@
 
 int main(void) 
 {
-	Bureaucrat *br = new Bureaucrat(150, "mej");
-    AForm *rb = new RobotomyRequestForm("mehdi");
-    br->executeForm(*rb);
-    delete rb;
-    delete br;
-    system("leaks Form");
+	
 }
