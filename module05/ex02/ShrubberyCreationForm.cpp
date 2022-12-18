@@ -42,15 +42,15 @@ void ShrubberyCreationForm::action() const
     outfile << " oooo xxoxoo ooo ooox" << std::endl;
     outfile << "  oxo o oxoxo  xoxxoxo" << std::endl;
     outfile << "  oxo xooxoooo o ooo" << std::endl;
-    outfile << "    ooo\oo\  /o/o" << std::endl;
-    outfile << "        \  \/ /" << std::endl;
+    outfile << "    ooo\\oo\\  /o/o" << std::endl;
+    outfile << "        \\ \\/ /" << std::endl;
     outfile << "         |   /" << std::endl;
     outfile << "         |  |" << std::endl;
     outfile << "         | D|" << std::endl;
     outfile << "         |  |" << std::endl;
     outfile << "         |  |" << std::endl;
     outfile << "         |  |" << std::endl;
-    outfile << "  ______/____\____" << std::endl;
-    outfile << "  .....//||||\...." << std::endl;
+    outfile << "  ______/____\\____" << std::endl;
+    outfile << "  .....//||||\\...." << std::endl;
     outfile.close();
 }

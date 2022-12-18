@@ -68,6 +68,7 @@ void Form::beSigned(const Bureaucrat &br) //  1 is higher then 2 ??
         throw Form::GradeTooLowException();
 }
 
+
 Form::~Form()
 {
     std::cout <<  "Destructor" << std::endl;
