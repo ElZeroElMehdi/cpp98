@@ -1,11 +1,16 @@
-#include "Bureaucrat.hpp"
 
-#include "Bureaucrat.hpp"
-#include "AForm.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-
+#include "Intern.hpp"
 int main(void) 
 {
-	
+    try{
+        Intern someRandomIntern;
+        AForm* rrf;
+        rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+        std::cout<<std::endl;
+    }
+    catch(std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+        system("leaks Form");
 }
