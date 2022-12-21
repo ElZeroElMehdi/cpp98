@@ -2,11 +2,11 @@
 #define AFORM_HPP
 
 #include <iostream>
-#include "Bureaucrat.hpp"
 #include <fstream>
 #include <string>
 
-class Bureaucrat; //forward declaration
+#include "Bureaucrat.hpp"
+class Bureaucrat;
 
 class AForm
 {
@@ -28,7 +28,6 @@ class AForm
         int getGradeToExe() const ;
         void beSigned(const Bureaucrat &br);
 
-        // virtual void form_to_Aform(void) const = 0; //just for make this class abstract class
         void execute(Bureaucrat const & executor) const;
         virtual void action() const = 0;
         class GradeTooHighException : public  std::exception

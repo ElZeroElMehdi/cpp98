@@ -9,12 +9,12 @@ class Bureaucrat
 		const std::string Name;
 		int grade;
 	public:
-		int getGrade() const ; //ok
-		const std::string &getName() const; //ok
-		Bureaucrat(); //ok
-		Bureaucrat(int _grade, std::string _name); //..
-		Bureaucrat(const Bureaucrat &New); //ok
-		Bureaucrat& operator=(const Bureaucrat &rhs); //ok
+		int getGrade() const ;
+		const std::string &getName() const;
+		Bureaucrat();
+		Bureaucrat(int _grade, std::string _name);
+		Bureaucrat(const Bureaucrat &New);
+		Bureaucrat& operator=(const Bureaucrat &rhs);
 		~Bureaucrat();
 
 		class GradeTooHighException : public  std::exception

@@ -8,7 +8,6 @@ Bureaucrat::Bureaucrat() : Name("")
 Bureaucrat::Bureaucrat(int _grade, std::string _name) : Name(_name)
 {
     std::cout << "Bureaucrat prametrize Constructor" << std::endl;
-    // this->Name = _name;
     if (_grade >= 1 && _grade <= 150)
         this->grade = _grade;
     else

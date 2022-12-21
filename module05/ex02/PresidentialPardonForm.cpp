@@ -12,12 +12,6 @@ PresidentialPardonForm::PresidentialPardonForm(std::string _tr)
     this->target = _tr;
 }
 
-// PresidentialPardonForm::PresidentialPardonForm(std::string tr, const std::string sh_name, bool sh_is_sign, const int sh_grade_sig, const int sh_grade_exe): AForm(sh_name, sh_is_sign, sh_grade_sig, sh_grade_exe)
-// {
-//     this->target = tr;
-//     std::cout << "PresidentialPardonForm parametrized Constructor" << std::endl;
-// }
-
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &ppf)
 {
     std::cout << "PresidentialPardonForm Copy Constructor" << std::endl;

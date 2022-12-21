@@ -6,10 +6,11 @@ int main ()
     {
         Bureaucrat s(150, "mehdi");
         // std::cout << s;
-        // s.increment();
+        s.increment();
+        std::cout << s.getGrade() << std::endl;
+        s.decrement();
         // s.decrement();
-        // s.getName() = "youne";
-        std::cout << s.getName() << std::endl;
+        std::cout << s.getGrade() << std::endl;
         std::cout<<s;
         
     }
@@ -17,5 +18,9 @@ int main ()
     {
         std::cerr << e.what() << '\n';
     }
-    // system("leaks Bureaucrat");
+    std::cout<<std::endl;
+    std::cout<<std::endl;
+    std::cout<<std::endl;
+    std::cout<<std::endl;
+    system("leaks Bureaucrat");
 }

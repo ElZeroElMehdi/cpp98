@@ -9,7 +9,17 @@ Form::Form() : Name(""), grade_to_sign(0), grade_to_execute(0)
 Form::Form(const std::string _name, bool _is_sign, const int _grade_sig, const int _grade_exe) : Name(_name), grade_to_sign(_grade_sig), grade_to_execute(_grade_exe)
 {
     std::cout << "parameterized Constructor" << std::endl;
-    this->is_signed = _is_sign;
+    if (_grade_sig >= 1 && _grade_sig <= 150 && _grade_exe >= 1 && _grade_exe <= 150)
+    {
+        this->is_signed = _is_sign;
+    }
+    else
+    {
+        if (_grade_sig < 1 || _grade_exe < 1)
+            throw Form::GradeTooHighException();
+        else if (_grade_sig > 150 || _grade_exe > 150)
+            throw Form::GradeTooLowException();
+    }
 }
 
 Form &Form::operator=(const Form &rhs)
