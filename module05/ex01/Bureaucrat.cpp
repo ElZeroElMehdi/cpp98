@@ -94,17 +94,3 @@ void Bureaucrat::signForm(const Bureaucrat &br, Form &obj)
     }
     std::cout << br << " Signed " << obj << std::endl;
 }
-
-void Bureaucrat::signForm(const Bureaucrat &br, Form &obj)
-{
-    try
-    {
-        obj.beSigned(br);
-    }
-    catch (std::exception &e)
-    {
-        std::cout << br << " couldn't sign " << obj << " because " << e.what() << std::endl;
-        return;
-    }
-    std::cout << br << " Signed " << obj << std::endl;
-}

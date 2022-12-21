@@ -35,6 +35,7 @@ class Bureaucrat
 		
 		void increment();
 		void decrement();
+		
 		void signForm(const Bureaucrat &br, Form &obj);
 };
 
