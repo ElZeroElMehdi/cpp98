@@ -9,7 +9,7 @@ int main(void)
 {
     try
     {
-        Bureaucrat *br = new Bureaucrat(150, "mej");
+        Bureaucrat *br = new Bureaucrat(40, "mej");
         AForm *rb = new RobotomyRequestForm("mehdi");
         AForm *sh = new ShrubberyCreationForm("trrr");
         br->executeForm(*rb);
@@ -22,5 +22,5 @@ int main(void)
     {
         std::cout << e.what() << std::endl;
     }
-    system("leaks Form");
+    // system("leaks Form");
 }
