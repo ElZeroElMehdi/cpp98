@@ -84,6 +84,6 @@ std::ostream &operator<<(std::ostream &COUT, Caster &obj)
 {
     COUT << "char " << obj.to_char() << std::endl;
     COUT << "int " << obj.to_int() << std::endl;
-    COUT << "float " << obj.to_float() << std::endl;
+    COUT << "float " << obj.to_float() << "f"<<  std::endl;
     return COUT;
 }
