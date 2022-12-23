@@ -1,27 +1,49 @@
 #include <iostream>
+#include <algorithm>
+#include <string>
 
-int checker(std::string str)
+#include "cast.hpp"
+
+bool checker(std::string str)
 {
-    for (size_t i = 0 ; i < str.length() ; i++)
+    size_t i = 0;
+    while(i < str.length())
     {
-        if (str[i] < 0 || str[i] > 9)
-            return -1;
+        if ((str[i] >= '0' && str[i] <= '9') || str[i] == '.' || str[i] == 'f')
+        {
+            if(str[i] == '.' && str[i + 1] && (str[i + 1] < '0' || str[i + 1] > '9'))
+                return false;
+            if(str[i] == 'f' && str[i + 1])
+                return false;
+            i++;
+        }
+        else
+            return false;
     }
-    if (std::count(str.begin(), str.end(), '.') > 1 || std::count(str.begin(), str.end(), 'f') > 1)
-        return -1;
+    if (std::count(str.begin(), str.end(), '.') > 1 || std::count(str.begin(), str.end(), 'f') > 1 || (std::count(str.begin(), str.end(), '.') == 0 && std::count(str.begin(), str.end(), 'f') > 0))
+        return false;
+    
     else
-        return 1;
+        return true;
 }
 
 int main(int ac, char **argv)
 {
-    std::string str(argv[1]);
-    if (ac == 2 && checker(str) != -1)
+    try
     {
-        int str = std::stoi(argv[1]);
-        char c = static_cast<char>(str);
-        std::cout << str << "  "<< c << std::endl;
+        std::string str(argv[1]);
+        if (ac == 2 && checker(str) == true)
+        {
+            Caster cs(str);
+            std::cout << cs;
+            float xx = 45.1;
+            std::cout << xx << std::endl;
+        }
+        else
+            std::cout << "something wrrong!" << std::endl;
     }
-    else
-        std::cout << "something wrrong!" << std::endl;
+    catch (const std::exception &e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 }
