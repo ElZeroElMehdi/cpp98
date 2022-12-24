@@ -1,7 +1,21 @@
-#include <iostream>
-#include <cstdint>
+#include "serial.hpp"
 
-uintptr_t serialize(Data* ptr)
+int main()
 {
-    return reinterpret_cast<uintptr_t>(ptr);
+    try
+    {
+        Data *t = new Data;
+
+        t->x = 10;
+        uintptr_t x = serialize(t);
+        t = deserialize(x);
+
+        std::cout << t->x << std::endl;
+        delete t;
+    }
+    catch (const std::exception &e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    system("leaks Serialization");
 }

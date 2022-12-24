@@ -1,12 +1,12 @@
-NAME = Serialization
+NAME = serialize
 
 cpp = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = 
+SRCS = main.cpp utils.cpp
 
-headers = 
+headers = serial.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 
