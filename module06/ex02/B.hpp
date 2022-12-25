@@ -5,7 +5,6 @@
 
 class B
 {
-    public:
 };
 
 #endif

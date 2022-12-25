@@ -6,5 +6,4 @@ class Base
     public:
         virtual ~Base();
 };
-
 #endif
