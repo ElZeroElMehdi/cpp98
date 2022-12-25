@@ -3,7 +3,7 @@
 
 #include "base.hpp"
 
-class B
+class B: public Base
 {
 };
 

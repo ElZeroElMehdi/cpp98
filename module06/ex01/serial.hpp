@@ -42,4 +42,21 @@ complex data structures or inheritance hierarchies. Modern C++ versions, such as
 provide better support for serialization through language features such as std::unique_ptr 
 and std::shared_ptr.
 
+void identify(Base* p) {
+    A * a;
+    a = dynamic_cast<A*>(p);
+    if (a) {
+        std::cout<<"Class A has successfull!!"<<std::endl;
+    }
+    B * b;
+    b = dynamic_cast<B*>(p);
+    if(b) {
+        std::cout<<"Class B has successfull!!"<<std::endl;
+    }
+    C *c;
+    c = dynamic_cast<C*>(p);
+    if(c) {
+        std::cout<<"Class C has successfull!!"<<std::endl;
+    }
+}
 */
