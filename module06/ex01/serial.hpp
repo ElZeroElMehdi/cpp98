@@ -20,8 +20,8 @@ Data* deserialize(uintptr_t raw);
 In the context of C++98, serialization refers to the process of converting the state
 of an object or data structure into a form that can be stored or transmitted,
 and then reconstituting the object or data structure from that stored or transmitted form.
- Serialization is often used when an object needs to be persisted to storage
- (such as a file or database) or transmitted over a network connection.
+Serialization is often used when an object needs to be persisted to storage
+(such as a file or database) or transmitted over a network connection.
 
 There are several ways to perform serialization in C++98.
 One approach is to manually write code that converts the object's data members to a
@@ -41,22 +41,4 @@ support for reflection, which makes it difficult to automatically serialize obje
 complex data structures or inheritance hierarchies. Modern C++ versions, such as C++11 and later, 
 provide better support for serialization through language features such as std::unique_ptr 
 and std::shared_ptr.
-
-void identify(Base* p) {
-    A * a;
-    a = dynamic_cast<A*>(p);
-    if (a) {
-        std::cout<<"Class A has successfull!!"<<std::endl;
-    }
-    B * b;
-    b = dynamic_cast<B*>(p);
-    if(b) {
-        std::cout<<"Class B has successfull!!"<<std::endl;
-    }
-    C *c;
-    c = dynamic_cast<C*>(p);
-    if(c) {
-        std::cout<<"Class C has successfull!!"<<std::endl;
-    }
-}
 */
