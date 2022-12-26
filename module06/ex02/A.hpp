@@ -3,8 +3,6 @@
 
 #include "base.hpp"
 
-class A: public Base
-{
-};
+class A: public Base{};
 
 #endif

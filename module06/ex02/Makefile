@@ -1,12 +1,12 @@
-NAME = 
+NAME = real_type
 
 cpp = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = 
+SRCS =  base.cpp main.cpp
 
-headers = 
+headers = A.hpp B.hpp C.hpp  base.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 
