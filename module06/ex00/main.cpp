@@ -22,12 +22,11 @@ int check_error(std::string str)
         else
             return -1;
     }
-    if (std::count(str.begin(), str.end(), '.') > 1 || std::count(str.begin(), str.end(), 'f') > 1  || (std::count(str.begin(), str.end(), '.') == 0 && std::count(str.begin(), str.end(), 'f') > 0))
+    if (std::count(str.begin(), str.end(), '.') > 1 || std::count(str.begin(), str.end(), 'f') > 1 || (std::count(str.begin(), str.end(), '.') == 0 && std::count(str.begin(), str.end(), 'f') > 0))
         return -1;
     else
         return 1;
 }
-
 
 int main(int ac, char **argv)
 {
@@ -36,13 +35,26 @@ int main(int ac, char **argv)
         std::string str;
         if (ac == 2)
             str = argv[1];
+        int sig = 1;
+        if (str[0] == '+')
+            str = str.substr(1, str.length());
+        else if (str[0] == '-')
+        {
+            str = str.substr(1, str.length());
+            sig = -1;
+        }
         if (ac == 2 && check_error(str) > 0)
         {
             Caster cs;
             if (check_error(str) == 2)
                 cs.setArg((char)str[0]);
             else if (check_error(str) == 1)
-                cs.setArg(str);
+            {
+                if (sig == -1)
+                    cs.setArg("-" + str);
+                else
+                    cs.setArg(str);
+            }
             std::cout << cs;
         }
         else
