@@ -10,6 +10,7 @@ class Caster
         std::string getArg();
         Caster();
         Caster(std::string str);
+        Caster(int nan);
         Caster(const Caster &cst);
         Caster& operator=(const Caster &rhs);
         ~Caster();

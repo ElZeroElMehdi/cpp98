@@ -3,19 +3,16 @@
 Caster::Caster()
 {
     this->arg = "";
-    std::cout << "Caster Default Constructor" << std::endl;
 }
 
 Caster::Caster(std::string str)
 {
     this->arg = str;
-    std::cout << "Caster parametrize Constructor" << std::endl;
 }
 
 Caster::Caster(const Caster &cst)
 {
     this->arg = cst.arg;
-    std::cout << "Caster Copy Constructor" << std::endl;
 }
 
 Caster &Caster::operator=(const Caster &rhs)
@@ -26,7 +23,6 @@ Caster &Caster::operator=(const Caster &rhs)
 
 Caster::~Caster()
 {
-    std::cout << "Destrucer Caster called" << std::endl;
 }
 
 void Caster::setArg(std::string _arg)
@@ -50,12 +46,7 @@ char Caster::to_char()
     if (std::isprint(c))
         return c;
     else
-    {
-        // std::string s ="this charcter not printable";
-        // throw(std::exception((const char *)s.c_str()));
         std::cout << " Non displayable";
-        return 0;
-    }
     return 0;
 }
 

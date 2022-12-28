@@ -35,6 +35,14 @@ int main(int ac, char **argv)
         std::string str;
         if (ac == 2)
             str = argv[1];
+        if (str == "nan" || str == "nanf")
+        {
+            std::cout << "char: impossible" << std::endl;
+            std::cout << "int: impossible" << std::endl;
+            std::cout << "flot: nanf" << std::endl;
+            std::cout << "double: nan" << std::endl;
+            return 0;
+        }
         int sig = 1;
         if (str[0] == '+')
             str = str.substr(1, str.length());
