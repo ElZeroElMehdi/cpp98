@@ -1,0 +1,5 @@
+In C++, static_cast is a type casting operator that can be used to perform a variety of type conversions, such as converting a float to an int, or a pointer to a derived class to a pointer to its base class. static_cast is generally used for conversions that are safe and well-defined, such as conversions between numeric types or between pointers to related types.
+
+reinterpret_cast is a type casting operator that is used to perform a low-level interpretation of the bit pattern of a value. It is generally used to convert a pointer to a type to a different pointer type, or to convert a pointer to a function to a function pointer of a different type. reinterpret_cast is generally used when the type of the object being converted is not known at compile-time, or when the conversion is not safe and well-defined.
+
+Both static_cast and reinterpret_cast are available in C++98 and later versions of the language. However, static_cast is generally preferred over reinterpret_cast when possible, because it is safer and more robust. reinterpret_cast should be used with caution, as it can result in undefined behavior if used incorrectly.
