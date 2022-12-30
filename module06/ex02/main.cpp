@@ -5,8 +5,6 @@
 #include "base.hpp"
 #include <cstdlib>
 
-// dynamic_cast: Safely converts pointers and references to classes up, down, and sideways along the inheritance hierarchy
-
 Base *generate(void)
 {
     Base *tab[] = {new B, new A, new C};
