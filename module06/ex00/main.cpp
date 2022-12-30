@@ -37,6 +37,8 @@ void to_float(std::string str)
         float f = std::stof(str);
         if (str == "nan" || str == "nanf" || str == "NAN" || str == "NANF")
             std::cout << "flot :" << "nanf" << std::endl;
+         else if (str == "-inf" || str == "+inf" || str == "-inff" || str == "+inff")
+            std::cout << "float :" << str[0] <<"inf" <<"f"<< std::endl;
         else if (f == std::stoi(str))
             std::cout << "float :" << f << ".0f" << std::endl;
         else
@@ -53,8 +55,10 @@ void to_double(std::string str)
     try
     {
         double f = std::stod(str);
-        if (str == "nan" || str == "nanf" || str == "NAN" || str == "NANF")
+        if (str == "nan" || str == "nanf")
             std::cout << "double :" << "nan" << std::endl;
+        else if (str == "-inf" || str == "+inf" || str == "-inff" || str == "+inff"  )
+            std::cout << "double :" << str[0] <<"inf" << std::endl;
         else if (f == std::stoi(str))
             std::cout << "double :" << f << ".0" << std::endl;
         else
