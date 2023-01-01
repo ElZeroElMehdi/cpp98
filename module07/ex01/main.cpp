@@ -1,0 +1,27 @@
+#include "iter.hpp"
+
+void fnc(int i)
+{
+    std::cout << i << std::endl;
+}
+
+void fnc2(std::string i)
+{
+    std::cout << i << std::endl;
+}
+
+int main()
+{
+    {
+        int i[] = {1, 22, 3};
+        ::iter(i, sizeof(i) / sizeof(int), fnc);
+    }
+
+    {
+        std::string str[] = {"str1", "str2", "str3"};
+
+        ::iter(str, sizeof(str) / sizeof(std::string), fnc2);
+    }
+
+    // system("leaks iter");
+}
