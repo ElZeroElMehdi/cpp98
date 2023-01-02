@@ -12,6 +12,7 @@ int main(int, char**)
         const int value = rand();
         numbers[i] = value;
         mirror[i] = value;
+        std::cerr << "value if i"<< i << std::endl;
     }
     //SCOPE
     {
@@ -51,3 +52,18 @@ int main(int, char**)
     delete [] mirror;//
     return 0;
 }
+
+
+
+
+// int main()
+// {
+//     Array<int> *numbers = new Array<int>(10);
+//     for (int i = 0; i < 10; i++)
+//         numbers[i] = i*10;
+
+//     for (size_t i = 0; i < 10; i++)
+//         std::cout << numbers[i] << std::endl;
+
+//     system("leaks array");    
+// }

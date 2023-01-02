@@ -8,48 +8,52 @@ class Array
 {
     private:
         int capacity_;
-        T* data_;
+        T *data_;
+
     public:
         Array()
         {
             this->data_ = NULL;
-            capacity_ = 0;
         }
+
         Array(int cap)
         {
             this->capacity_ = cap;
             this->data_ = new T[this->capacity_];
             if (!this->data_)
-                exit(1);
+                throw std::exception();
         }
+
         Array(const Array &_arr)
         {
             *this = _arr;
         }
 
-        Array &operator=(const Array & copyAssig) {
-            this->capacity_ = copyAssig.capacity_;
+        Array &operator=(const Array &rhs)
+        {
+            this->capacity_ = rhs.capacity_;
             this->data_ = new T[this->capacity_];
             if (!this->data_)
             {
-                exit(1);
+                std::cout << "error" << std::endl;
+                throw std::exception();
             }
-            int i = 0;
-            while (i < this->capacity_)
-            {
-                this->data_[i] = copyAssig.data_[i];
-                i++;
-            }
+            for (int i = 0; i < this->capacity_; i++)
+                this->data_[i] = rhs.data_[i];
             return (*this);
         }
 
-        T& operator[](size_t index)
+        T &operator[](int index)
         {
             if (index < 0 || index > this->capacity_)
-                throw (std::exception());
+            {
+                std::cout << "error :"<< index << std::endl;
+                throw(std::exception());
+            }
             else
                 return data_[index];
         }
+
         // size_t size()
         // {
         //     return sizeof(data_)/sizeof(T);
@@ -60,8 +64,6 @@ class Array
             if (this->data_)
                 delete[] this->data_;
         }
-
 };
-
 
 #endif
