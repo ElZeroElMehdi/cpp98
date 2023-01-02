@@ -1,15 +1,43 @@
 #ifndef ARRAY_HPP
 #define ARRAY_HPP
 
+#include <iostream>
+
 template <class T>
 class Array
 {
     private:
-        int size_;
         int capacity_;
         T* data_;
     public:
-        Array() : size_(0), capacity_(10), data_(new T[capacity_]) {}
+        Array()
+        {
+            this->data_ = NULL;
+            capacity_ = 0;
+        }
+        Array(int cap)
+        {
+            this->capacity_ = cap;
+            this->data_ = new T[this->capacity_];
+        }
+        T& operator[](size_t index)
+        {
+            if (index < 0 || index > this->capacity_)
+                throw (std::exception());
+            else
+                return data_[index];
+        }
+        // size_t size()
+        // {
+        //     return sizeof(data_)/sizeof(T);
+        // }
+
+        ~Array()
+        {
+            if (this->data_)
+                delete[] this->data_;
+        }
+
 };
 
 
