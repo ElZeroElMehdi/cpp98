@@ -2,19 +2,34 @@
 #include "Array.hpp"
 
 #define MAX_VAL 750
-int main(int, char**)
+
+int s()
 {
     Array<int> numbers(MAX_VAL);
-    int* mirror = new int[MAX_VAL];
+    int *mirror = new int[MAX_VAL];
     srand(time(NULL));
     for (int i = 0; i < MAX_VAL; i++)
     {
         const int value = rand();
         numbers[i] = value;
         mirror[i] = value;
-        std::cerr << "value if i"<< i << std::endl;
+        // std::cerr << "value if i"<< i << std::endl;
     }
-    //SCOPE
+    {
+        try
+        {
+            std::cout << "************************\n";
+            Array<int> x(-2);
+            x = numbers;
+            std::cout << "************************\n";
+            /* code */
+        }
+        catch (const std::exception &e)
+        {
+            std::cerr << e.what() << '\n';
+        }
+    }
+    // SCOPE
     {
         Array<int> tmp = numbers;
         Array<int> test(tmp);
@@ -33,7 +48,7 @@ int main(int, char**)
         // numbers[-2] = 0;
         numbers[2] = 0;
     }
-    catch(const std::exception& e)
+    catch (const std::exception &e)
     {
         std::cerr << e.what() << '\n';
     }
@@ -41,7 +56,7 @@ int main(int, char**)
     {
         numbers[MAX_VAL] = 0;
     }
-    catch(const std::exception& e)
+    catch (const std::exception &e)
     {
         std::cerr << e.what() << '\n';
     }
@@ -50,6 +65,15 @@ int main(int, char**)
     {
         numbers[i] = rand();
     }
-    delete [] mirror;//
+    delete[] mirror; //
     return 0;
+}
+int main(int, char **)
+{
+    s();
+    // system("leaks array");
+
+
+    //const
+    // parmetrs as ref
 }
