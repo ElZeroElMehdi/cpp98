@@ -30,7 +30,8 @@ int main(int, char**)
     }
     try
     {
-        numbers[-2] = 0;
+        // numbers[-2] = 0;
+        numbers[2] = 0;
     }
     catch(const std::exception& e)
     {
@@ -52,18 +53,3 @@ int main(int, char**)
     delete [] mirror;//
     return 0;
 }
-
-
-
-
-// int main()
-// {
-//     Array<int> *numbers = new Array<int>(10);
-//     for (int i = 0; i < 10; i++)
-//         numbers[i] = i*10;
-
-//     for (size_t i = 0; i < 10; i++)
-//         std::cout << numbers[i] << std::endl;
-
-//     system("leaks array");    
-// }

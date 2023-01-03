@@ -54,11 +54,6 @@ class Array
                 return data_[index];
         }
 
-        // size_t size()
-        // {
-        //     return sizeof(data_)/sizeof(T);
-        // }
-
         ~Array()
         {
             if (this->data_)
