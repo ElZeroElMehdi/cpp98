@@ -4,8 +4,9 @@
 #include <iostream>
 
 template <typename T, typename F>
-void iter(T *arr, size_t lenght, F f)
+void iter(T &arr, size_t lenght, F f)
 {
+    if ()
     for (size_t i = 0; i < lenght; i++)
         f(arr[i]);
 }

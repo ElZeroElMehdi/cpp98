@@ -12,15 +12,22 @@ void fnc2(std::string i)
 
 int main()
 {
+    try
     {
-        int i[] = {1, 22, 3};
-        ::iter(i, sizeof(i) / sizeof(int), fnc);
+        {
+            int i[] = {1, 22, 3};
+            ::iter(i, sizeof(i) / sizeof(int), fnc);
+        }
+
+        {
+            std::string str[] = {"str1", "str2", "str3"};
+
+            ::iter(str, sizeof(str) / sizeof(std::string), fnc2);
+        }
     }
-
+    catch (std::exception &e)
     {
-        std::string str[] = {"str1", "str2", "str3"};
-
-        ::iter(str, sizeof(str) / sizeof(std::string), fnc2);
+        std::cout << e.what() << std::endl;
     }
 
     // system("leaks iter");
