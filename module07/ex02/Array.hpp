@@ -53,6 +53,14 @@ class Array
                 return data_[index];
         }
 
+        const T &operator[](int index) const
+        {
+            if (index < 0 || index > this->capacity_)
+                throw(std::exception());
+            else
+                return data_[index];
+        }
+
         ~Array()
         {
             if (this->data_)

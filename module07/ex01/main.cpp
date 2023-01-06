@@ -10,6 +10,12 @@ void fnc2(std::string i)
     std::cout << i << std::endl;
 }
 
+template <typename T>
+void fnc3(T t)
+{
+    std::cout << t << std::endl;
+}
+
 int main()
 {
     try
@@ -29,6 +35,4 @@ int main()
     {
         std::cout << e.what() << std::endl;
     }
-
-    // system("leaks iter");
 }
