@@ -3,5 +3,10 @@
 
 #include <iostream>
 
+template <typename T>
+void easyfind(T &t, int i)
+{
+    
+}
 
 #endif
