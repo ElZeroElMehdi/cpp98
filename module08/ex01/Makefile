@@ -4,9 +4,9 @@ cpp = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp span.cpp
+SRCS = main.cpp Span.cpp
 
-headers = span.hpp
+headers = Span.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 

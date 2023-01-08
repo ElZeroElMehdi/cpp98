@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 class Span
 {
@@ -16,6 +17,10 @@ class Span
         Span & operator=(const Span &rhs);
         ~Span();
         void addNumber(int node);
+        // void show();
+
+        int shortestSpan();
+        int longestSpan();
         
 };
 
