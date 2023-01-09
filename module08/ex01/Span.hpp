@@ -20,7 +20,8 @@ class Span
 
         int shortestSpan();
         int longestSpan();
-        
+
+        void manyAdds(std::__1::vector<int>::iterator __first, std::__1::vector<int>::iterator __last);
 };
 
 #endif

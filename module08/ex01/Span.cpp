@@ -8,6 +8,7 @@ Span::Span()
 Span::Span(unsigned int n)
 {
 	this->N = n;
+	
 }
 
 Span::Span(const Span &cpy)
@@ -25,32 +26,49 @@ Span &Span::operator=(const Span &rhs)
 
 Span::~Span()
 {
-	std::cout << "destructor" << std::endl;
 }
 
 void Span::addNumber(int node)
 {
-	// if (node == (int)this->v.size())
-	// 	throw std::exception();
-	
+	if (node == (int)this->v.size())
+		throw std::exception();
+
 	this->v.push_back(node);
 	this->N = this->v.size();
 }
 
 int Span::shortestSpan()
 {
-	int shortest_span = std::numeric_limits<int>::max();
-	for (size_t i = 0; i < v.size(); i++)
-    {
-        for (size_t j = i + 1; j < v.size(); j++)
-        {
-			std::cout << "i = " << v[i] << " j = " << v[j] << std::endl;
-            int span = std::abs(v[i] - v[j]);
-			std::cout << span << std::endl;
-            shortest_span = std::min(shortest_span, span);
-        }
-    }
+	std::vector<int> lst;
+	lst = this->v;
+	if (lst.size() <= 1)
+		throw std::exception();
+	std::sort(lst.begin(), lst.end());
+	int span = INT_MAX;
+	for (size_t i = 0; i < lst.size(); i++)
+	{
+		if (std::abs(lst[i] - lst[i + 1]) < span)
+			span = std::abs(lst[i] - lst[i + 1]);
+	}
+	return (span);
+}
 
-	// shortest_span =  std::abs(v[v.size() - 2] - v[v.size() - 1]);
-	return(shortest_span);
+int Span::longestSpan()
+{
+	std::vector<int> lst;
+	lst = this->v;
+	if (lst.size() <= 1)
+		throw std::exception();
+	std::sort(lst.begin(), lst.end());
+	return (std::abs(lst[0] - lst[lst.size() - 1]));
+}
+
+void Span::manyAdds(std::__1::vector<int>::iterator _beging, std::__1::vector<int>::iterator _end)
+{
+	if ((int)(this->N - this->v.size()) < (_end - _beging))
+		throw std::exception();
+	std::cout << "N >>>>"<< N << std::endl;
+	std::cout << "b >>>>"<< (_end - _beging) << std::endl;
+	this->v.insert(this->v.begin(),_beging, _end);
+	return ;
 }
