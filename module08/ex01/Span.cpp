@@ -31,7 +31,7 @@ Span::~Span()
 void Span::addNumber(int node)
 {
 	if (node == (int)this->v.size())
-		throw std::exception();
+		throw Span::same();
 
 	this->v.push_back(node);
 	this->N = this->v.size();
@@ -42,7 +42,7 @@ int Span::shortestSpan()
 	std::vector<int> lst;
 	lst = this->v;
 	if (lst.size() <= 1)
-		throw std::exception();
+		throw Span::oneOrNot();
 	std::sort(lst.begin(), lst.end());
 	int span = INT_MAX;
 	for (size_t i = 0; i < lst.size(); i++)
@@ -58,7 +58,7 @@ int Span::longestSpan()
 	std::vector<int> lst;
 	lst = this->v;
 	if (lst.size() <= 1)
-		throw std::exception();
+		throw Span::oneOrNot();
 	std::sort(lst.begin(), lst.end());
 	return (std::abs(lst[0] - lst[lst.size() - 1]));
 }
@@ -66,9 +66,25 @@ int Span::longestSpan()
 void Span::manyAdds(std::__1::vector<int>::iterator _beging, std::__1::vector<int>::iterator _end)
 {
 	if ((int)(this->N - this->v.size()) < (_end - _beging))
-		throw std::exception();
+		throw Span::noSpaceleft();
 	std::cout << "N >>>>"<< N << std::endl;
 	std::cout << "b >>>>"<< (_end - _beging) << std::endl;
 	this->v.insert(this->v.begin(),_beging, _end);
 	return ;
+}
+
+
+const char *Span::noSpaceleft::what() const throw()
+{
+	return "its look like you want to add more items to full container";
+}
+
+const char *Span::oneOrNot::what() const throw()
+{
+	return "its look like youre container has one or zero item";
+}
+
+const char *Span::same::what() const throw()
+{
+	return "if size is x number dont add x to this container";
 }

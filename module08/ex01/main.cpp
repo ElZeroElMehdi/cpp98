@@ -22,16 +22,11 @@ int main()
         Span sp2 = Span(100);
         std::vector<int> lst(10000);
         for (size_t i = 0; i < 10000; i++)
-        {
-            // if (i != lst.size())
-                lst.push_back(i);
-        }
-
+            lst.push_back(i);
         sp2.manyAdds(lst.begin(), lst.end());
         std::cout <<lst.end() - lst.begin()<< std::endl;
         std::cout << sp2.shortestSpan() << std::endl;
         std::cout << sp2.longestSpan() << std::endl;
-        
     }
     catch (const std::exception &e)
     {

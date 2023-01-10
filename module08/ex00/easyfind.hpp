@@ -1,5 +1,5 @@
 #ifndef EASYFIND_HPP
-#define EASYFIND_HP
+#define EASYFIND_HPP
 
 #include <iostream>
 #include <vector>
@@ -17,7 +17,7 @@ void easyfind(T &t, int x)
     {
         if (x == t[i])
         {
-            std::cout << "the "<< x << " exect in container at index " << i <<std::endl;
+            std::cout << "the "<< x << " exest in container at index " << i <<std::endl;
             return ; 
         }
     }

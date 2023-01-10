@@ -8,7 +8,10 @@ int main()
         v[0] = 5;
         v[1] = 56;
         v[2] = 200;
-        ::easyfind(v, 300);
+        ::easyfind(v, 56);
+        ::easyfind(v, 5);
+        ::easyfind(v, 200);
+        ::easyfind(v, 211);
     }
     catch (const std::exception &e)
     {

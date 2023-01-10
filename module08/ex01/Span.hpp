@@ -22,6 +22,25 @@ class Span
         int longestSpan();
 
         void manyAdds(std::__1::vector<int>::iterator __first, std::__1::vector<int>::iterator __last);
+
+
+        class noSpaceleft : public  std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+
+        class oneOrNot : public  std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+
+        class same : public  std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
 };
 
 #endif
