@@ -6,20 +6,18 @@ int main(int ac, char **file)
     if (ac == 2)
     {
         std::map<std::string, std::string> data;
+        std::map<std::string, std::string> inputFile;
         // std::string x = "hello,world";
         // data.insert(saveSpliter(x));
         std::ifstream input(file[1]);
-        if (!input.is_open())
-        {
-            std::cerr << "Error opening file" << std::endl;
-            return 1;
-        }
-        else
-            fill(input, data);
-        for (std::map<std::string, std::string>::iterator it = data.begin(); it != data.end(); ++it)
-        {
-            std::cout << "done >>>" << it->first << "  " << it->second << std::endl;
-        }
+        std::ifstream inputF("input.txt");
+        if (!input.is_open() || !inputF.is_open()){ std::cerr << "Error opening file" << std::endl; return 1;}
+        else {fill(input, data); fill(inputF, inputFile);}
+        // for (std::map<std::string, std::string>::iterator it = data.begin(); it != data.end(); ++it)
+        //     std::cout << "done >>>" << it->first << " : " << it->second << std::endl;
+        // for (std::map<std::string, std::string>::iterator it = inputFile.begin(); it != inputFile.end(); ++it)
+        //     std::cout << "done >>>" << it->first << " : " << it->second << std::endl;
+        std::cout << isDateValid("2020-02-29") << std::endl;
     }
 }
 
