@@ -127,19 +127,19 @@ void showResult(std::ifstream &input, std::map<std::string, std::string> &data)
         std::string line;
         std::getline(input, line);
         line = trimer(line);
-        if (line.empty())
+        if (line.empty() || line == "date|value")
             continue;
         size_t pos = line.find("|");
         if (pos  == std::string::npos)
-            std::cout << "Error: invalid input " <<line<< std::endl;
+            std::cout << "Error: bad input => " <<line<< std::endl;
         else if (pos  != std::string::npos)
         {
             key = line.substr(0, pos);
             value = line.substr(pos + 1, line.length());
             if (key < firstDate)
                  std::cout << "Error: date " <<key<<" less then date :"<< firstDate << std::endl;
-            else if(getClosestDate(data, key).first.empty())
-                continue;
+            else if(getClosestDate(data, key).first.empty() || isDateValid(key) == false)
+                std::cout << "Error: bad input => " <<line<< std::endl;
             else
             {
                 ratVal = std::atof(value.c_str()) * (std::atof(getClosestDate(data, key).second.c_str()));
