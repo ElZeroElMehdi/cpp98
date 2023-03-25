@@ -1,12 +1,24 @@
-NAME = RPN
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: eelmoham <eelmoham@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/03/25 06:39:14 by eelmoham          #+#    #+#              #
+#    Updated: 2023/03/25 06:51:13 by eelmoham         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = PmergeMe
 
 cpp = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp rpn.cpp
+SRCS = main.cpp RPN.cpp
 
-headers = rpn.hpp
+headers = RPN.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 
