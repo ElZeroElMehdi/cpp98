@@ -6,7 +6,7 @@ void fill(std::ifstream &input, std::map<std::string, std::string> &data, int is
     std::string delimiter;
     if (is == 1)
         delimiter = ",";
-    else
+    else                            //no need anymore
         delimiter = "|";
     while (input >> n)
         data.insert(saveSpliter(n, ","));
@@ -25,7 +25,7 @@ bool isDateValid(std::string date)
 {
     if (date.length() != 10 || date[4] != '-' || date[7] != '-')
         return false;
-    int year = std::stoi(date.substr(0, 4));
+    int year = std::stoi(date.substr(0, 4));//c++11
     int month = std::stoi(date.substr(5, 2));
     int day = std::stoi(date.substr(8, 2));
     if (year < 1 || month < 1 || month > 12 || day < 1)
@@ -43,12 +43,10 @@ bool isDateValid(std::string date)
                 return false;
         }
     }
-    else if (month == 4 || month == 6 || month == 9 || month == 11)
+    else if (month == 4 || month == 6 || month == 9 || month == 11)// %2 and !%2
     {
         if (day > 30)
-        {
             return false;
-        }
     }
     else
     {
@@ -73,8 +71,8 @@ std::pair<std::string, std::string> getClosestDate(std::map<std::string, std::st
         }
         else if (it->first > date)
         {
-            result = *it;
-            return result;
+            *it--;
+            return *it;
         }
         it++;
     }
@@ -85,27 +83,31 @@ std::pair<std::string, std::string> getClosestDate(std::map<std::string, std::st
     return result;
 }
 
-// if (line.find("|") != std::string::npos)
-//     data.insert(saveSpliter(line, "|"));
-// else
-//     data.insert(std::pair<std::string, std::string>(line, "ERROR"));
 void showResult(std::ifstream &input, std::map<std::string, std::string> &data)
 {
     std::string key;
     std::string value;
+    int ratVal = 0;
     while (input.good())
     {
         std::string line;
         std::getline(input, line);
         if (line.empty())
             continue;
-        // std::cout << line << std::endl;
         size_t pos = line.find("|");
         if (pos  != std::string::npos)
         {
             key = line.substr(0, pos - 1);
-            value = line.substr(pos + 1, line.length());
-            std::cout << getClosestDate(data, key).first << "=>" << getClosestDate(data, key).second << std::endl;
+            value = line.substr(pos + 2, line.length());
+            // std::cout << key << "=>" << value << std::endl;
+            if(getClosestDate(data, key).first.empty())
+                continue;
+            else
+            {
+                ratVal = std::stoi(value) * std::stoi(getClosestDate(data, key).second);
+                // std::cout <<"|"<<getClosestDate(data, key).second<<"|"<< std::endl;
+                std::cout << getClosestDate(data, key).first << "=>" << value <<" = "<<  ratVal << std::endl;
+            }
         }
     }
 }
