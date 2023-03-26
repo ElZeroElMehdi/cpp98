@@ -6,7 +6,7 @@
 /*   By: eelmoham <eelmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:00:14 by eelmoham          #+#    #+#             */
-/*   Updated: 2023/03/26 07:46:40 by eelmoham         ###   ########.fr       */
+/*   Updated: 2023/03/26 08:11:51 by eelmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@
 #include <sstream>
 
 void fillVector(std::vector<int> &v, std::string &ar);
-void filldeque(std::deque<int> &d, std::string &ar);
+void filldeque(std::deque<int> &d, const std::string &s);
 bool allDigits(const std::string& str);
 #endif
