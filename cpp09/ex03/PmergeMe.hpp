@@ -6,7 +6,7 @@
 /*   By: eelmoham <eelmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:00:14 by eelmoham          #+#    #+#             */
-/*   Updated: 2023/03/26 08:11:51 by eelmoham         ###   ########.fr       */
+/*   Updated: 2023/03/26 19:54:55 by eelmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@
 #include <deque>
 #include <sstream>
 
+const int INSERTION_SORT_THRESHOLD = 16;
+
 void fillVector(std::vector<int> &v, std::string &ar);
 void filldeque(std::deque<int> &d, const std::string &s);
 bool allDigits(const std::string& str);
+void sort(std::vector<int>& v);
 #endif

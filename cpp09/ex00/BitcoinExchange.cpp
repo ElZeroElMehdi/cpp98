@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eelmoham <eelmoham@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/26 02:56:29 by eelmoham          #+#    #+#             */
+/*   Updated: 2023/03/26 02:56:30 by eelmoham         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "BitcoinExchange.hpp"
 
 static int toInt(std::string str)
@@ -116,16 +128,28 @@ std::string trimer(std::string &str)
    return std::string(str.begin(), newEnd);
 }
 
+bool isDateFormat(std::string date)
+{
+    if (date.length() != 10 || date[4] != '-' || date[7] != '-')
+        return false;
+    if (!isStringDigit(date.substr(0, 4), date.substr(5, 2), date.substr(8, 2)))
+        return false;
+    return true;
+}
+
 void showResult(std::ifstream &input, std::map<std::string, std::string> &data)
 {
     std::string key;
     std::string value;
     std::string firstDate = data.begin()->first;
     float ratVal = 0;
+    std::string line;
+    std::getline(input, line);
     while (input.good())
     {
-        std::string line;
         std::getline(input, line);
+        if (!isDateFormat(line.substr(0, 10)))
+        {std::cout << "Error: bad input => " <<line<< std::endl;continue;}
         line = trimer(line);
         if (line.empty() || line == "date|value")
             continue;

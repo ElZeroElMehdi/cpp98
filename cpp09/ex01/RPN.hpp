@@ -6,7 +6,7 @@
 /*   By: eelmoham <eelmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 06:39:08 by eelmoham          #+#    #+#             */
-/*   Updated: 2023/03/25 06:40:00 by eelmoham         ###   ########.fr       */
+/*   Updated: 2023/03/26 05:05:37 by eelmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@
 #include <stack>
 #include <string>
 
-
-int evaluateRPN(std::string expression);
+void splitSpace(std::string srgs,std::stack<float> &tokens );
+bool countDigitOperators(std::string srgs);
 #endif

@@ -6,11 +6,11 @@
 #    By: eelmoham <eelmoham@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/25 06:39:14 by eelmoham          #+#    #+#              #
-#    Updated: 2023/03/25 06:51:13 by eelmoham         ###   ########.fr        #
+#    Updated: 2023/03/26 06:30:05 by eelmoham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = PmergeMe
+NAME = RPN
 
 cpp = c++
 
