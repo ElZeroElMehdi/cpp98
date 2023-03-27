@@ -6,12 +6,12 @@
 /*   By: eelmoham <eelmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:00:54 by eelmoham          #+#    #+#             */
-/*   Updated: 2023/03/26 20:01:12 by eelmoham         ###   ########.fr       */
+/*   Updated: 2023/03/27 00:31:10 by eelmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-
+#include <ctime>
 int main (int ac, char **argv)
 {
     try
@@ -20,14 +20,14 @@ int main (int ac, char **argv)
             throw std::runtime_error("invalid syntax");
         std::string arg = argv[1];
         std::vector<int> v;
-        // std::deque<int> d;
-        fillVector(v, arg);
-        // filldeque(d, arg);
-        for (std::vector<int>::iterator it = v.begin(); it != v.end(); ++it)
+        std::deque<int> d;
+        // fillVector(v, arg);
+        filldeque(d, arg);
+        for (std::deque<int>::iterator it = d.begin(); it != d.end(); ++it)
             std::cout << *it << " ";
         std::cout << std::endl;
-        sort(v);
-        for (std::vector<int>::iterator it = v.begin(); it != v.end(); ++it)
+        mergeInsertionSort(d);
+        for (std::deque<int>::iterator it = d.begin(); it != d.end(); ++it)
             std::cout << *it << " ";
     }
     catch(const std::exception& e)
