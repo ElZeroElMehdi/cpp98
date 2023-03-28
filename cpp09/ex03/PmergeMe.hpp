@@ -6,7 +6,7 @@
 /*   By: eelmoham <eelmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:00:14 by eelmoham          #+#    #+#             */
-/*   Updated: 2023/03/27 00:45:38 by eelmoham         ###   ########.fr       */
+/*   Updated: 2023/03/28 00:54:25 by eelmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,9 @@
 #include <deque>
 #include <sstream>
 
-// const int INSERTION_SORT_THRESHOLD = 16;
-
 void fillVector(std::vector<int> &v, std::string &ar);
-void filldeque(std::deque<int> &d, const std::string &s);
-bool allDigits(const std::string& str);
+void filldeque(std::deque<int> &d, char **av);
+bool isAllDigits(char **av);
 
 template <typename Container>
 void merge(Container& v, int left, int mid, int right) {
@@ -77,4 +75,13 @@ template <typename Container>
 void mergeInsertionSort(Container& v) {
     mergeSort(v, 0, v.size() - 1);
 }
+
+template <typename Container>
+void fillContainer(Container &d, char **av)
+{
+  int i = 1;
+  while (av[i])
+    d.push_back(std::atoi(av[i++]));
+}
+
 #endif
