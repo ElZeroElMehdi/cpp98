@@ -6,7 +6,7 @@
 /*   By: eelmoham <eelmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 00:14:05 by eelmoham          #+#    #+#             */
-/*   Updated: 2023/03/26 05:06:20 by eelmoham         ###   ########.fr       */
+/*   Updated: 2023/03/30 01:59:18 by eelmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void splitSpace(std::string srgs,std::stack<float> &tk )
             tmp += srgs[i++];
         if (tmp.length() == 1 && std::isdigit(tmp.c_str()[0]))
             tk.push(std::stof(tmp));
-        else if(tmp.length() == 1 && (tmp[0] == '+' || tmp[0] == '-' || tmp[0] == '*' || tmp[0] == '/'))
+        else if(tmp.length() == 1 && (tmp[0] == '+' || tmp[0] == '-' || tmp[0] == '*' || tmp[0] == '/') && tk.size() >= 2)
         {
             float b = tk.top();
             tk.pop();
@@ -52,9 +52,13 @@ void splitSpace(std::string srgs,std::stack<float> &tk )
             if (tmp[0] == '*')
                 tk.top() = tk.top() * b;
             if (tmp[0] == '/')
+            {
+                if (b == 0)
+                    throw std::runtime_error("div by zero : Infinity");
                 tk.top() = tk.top() / b;
+            }
         }
         else
-            throw std::runtime_error("invladi sysnatx11");
+            throw std::runtime_error("invladi sysnatx");
     }
 }

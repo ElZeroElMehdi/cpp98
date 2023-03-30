@@ -6,7 +6,7 @@
 /*   By: eelmoham <eelmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:00:14 by eelmoham          #+#    #+#             */
-/*   Updated: 2023/03/28 00:54:25 by eelmoham         ###   ########.fr       */
+/*   Updated: 2023/03/29 00:43:41 by eelmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ double sortContainer(Container &c)
     clock_t start = clock();
     mergeInsertionSort(c);
     clock_t end = clock();
-    return static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000000;
+    return (double)(end - start) / (double)CLOCKS_PER_SEC * 1000;
 }
 
 #endif

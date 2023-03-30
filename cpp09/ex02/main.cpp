@@ -6,7 +6,7 @@
 /*   By: eelmoham <eelmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:00:54 by eelmoham          #+#    #+#             */
-/*   Updated: 2023/03/28 00:58:00 by eelmoham         ###   ########.fr       */
+/*   Updated: 2023/03/29 00:42:19 by eelmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ int main(int ac, char **argv)
             std::cout << *it << " ";
         std::cout << std::endl;
 
-        std::cout << "Time to process a range of " << ac - 1 << " elements with std::deque : " << dequeTime << " us" << std::endl;
-        std::cout << "Time to process a range of " << ac - 1 << " elements with std::vector : " << vectorTime << " us" << std::endl;
+        std::cout << "Time to process a range of " << ac - 1 << " elements with std::deque : " << dequeTime << " ms" << std::endl;
+        std::cout << "Time to process a range of " << ac - 1 << " elements with std::vector : " << vectorTime << " ms" << std::endl;
     }
     catch (const std::exception &e)
     {

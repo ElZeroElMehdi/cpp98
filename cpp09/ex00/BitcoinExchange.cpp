@@ -6,7 +6,7 @@
 /*   By: eelmoham <eelmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 02:56:29 by eelmoham          #+#    #+#             */
-/*   Updated: 2023/03/26 02:56:30 by eelmoham         ###   ########.fr       */
+/*   Updated: 2023/03/30 01:44:24 by eelmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ std::pair<std::string, std::string> saveSpliter(std::string &line, std::string d
 {
     line = trimer(line);
     int pos = line.find(delimiter);
-
+    
     std::string key = line.substr(0, pos);
     std::string value = line.substr(pos + 1, line.length());
     return std::make_pair(key, value);
@@ -137,6 +137,32 @@ bool isDateFormat(std::string date)
     return true;
 }
 
+static int countChar(std::string str, char c)
+{
+    int count = 0;
+    for (size_t i = 0; i < str.length(); i++)
+    {
+        if (str[i] == c)
+            count++;
+    }
+    return count;
+}
+
+static bool checkFormat(std::string str)
+{
+    if (countChar(str, '-') != 2)
+        return false;
+    if (countChar(str, '|') != 1)
+        return false;
+    if (countChar(str.substr(0, 10), '-') != 2)
+        return false;
+    if (countChar(str.substr(11, str.length()), '|') != 1)
+        return false;
+    if (countChar(str.substr(11, str.length()), '.')  > 1)
+        return false;
+    return true;
+}
+
 void showResult(std::ifstream &input, std::map<std::string, std::string> &data)
 {
     std::string key;
@@ -148,7 +174,7 @@ void showResult(std::ifstream &input, std::map<std::string, std::string> &data)
     while (input.good())
     {
         std::getline(input, line);
-        if (!isDateFormat(line.substr(0, 10)))
+        if (!isDateFormat(line.substr(0, 10)) || !checkFormat(line))
         {std::cout << "Error: bad input => " <<line<< std::endl;continue;}
         line = trimer(line);
         if (line.empty() || line == "date|value")
@@ -169,8 +195,8 @@ void showResult(std::ifstream &input, std::map<std::string, std::string> &data)
                 ratVal = std::atof(value.c_str()) * (std::atof(getClosestDate(data, key).second.c_str()));
                 if ((std::atof(value.c_str()) - 1000.0) > 0)
                     std::cout << "Error: too large a number" << std::endl;
-                else if (std::atof(value.c_str()) > 0)
-                    std::cout << getClosestDate(data, key).first << "=>" << value <<" = "<<  ratVal << std::endl;
+                else if (std::atof(value.c_str()) >= 0)
+                    std::cout << getClosestDate(data, key).first << " => " << value <<" = "<<  ratVal << std::endl;
                 else if (ratVal < 0)
                     std::cout<< "Error: not a positive number" << std::endl;
             }
