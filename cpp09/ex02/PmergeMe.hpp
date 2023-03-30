@@ -6,7 +6,7 @@
 /*   By: eelmoham <eelmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 07:00:14 by eelmoham          #+#    #+#             */
-/*   Updated: 2023/03/29 00:43:41 by eelmoham         ###   ########.fr       */
+/*   Updated: 2023/03/30 02:41:29 by eelmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,17 +79,21 @@ void mergeSort(Container &v, int l, int r)
 }
 
 template <typename Container>
-void mergeInsertionSort(Container &v)
+void mergeInsertionSort(Container &c)
 {
-    mergeSort(v, 0, v.size() - 1);
+    mergeSort(c, 0, c.size() - 1);
 }
 
 template <typename Container>
-void fillContainer(Container &d, char **av)
+void fillContainer(Container &c, char **av)
 {
     int i = 1;
     while (av[i])
-        d.push_back(std::atoi(av[i++]));
+    {
+        if (av[i][1])
+            throw std::invalid_argument("Error: Invalid argument");
+        c.push_back(std::atoi(av[i++]));
+    }
 }
 
 template <typename Container>
